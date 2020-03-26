@@ -531,3 +531,331 @@
   },
   [length]: 2
 ]
+2020-03-26T21:11:22.813Z : recommendations controller : addUser : start
+2020-03-26T21:11:22.820Z : users service : addUsers : start
+2020-03-26T21:11:22.829Z : category controller : addUser :end
+2020-03-26T21:11:22.896Z : users service : addUsers: result { _id: 5e7d1a7a937e4e90e62028ff, __v: 0 }
+2020-03-26T21:11:41.149Z : recommendations controller : addUser : start
+2020-03-26T21:11:41.150Z : users service : addUsers : start
+2020-03-26T21:11:41.150Z : category controller : addUser :end
+2020-03-26T21:11:41.189Z : users service : addUsers: result { _id: 5e7d1a8d937e4e90e6202900, __v: 0 }
+2020-03-26T21:12:03.443Z : recommendations controller : addUser : start
+2020-03-26T21:12:03.444Z : users service : addUsers : start
+2020-03-26T21:12:03.452Z : users service : addUsers: catch TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ReplSet'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'coreTopology' -> object with constructor 'ReplSet'
+    |     ...
+    |     property 's' -> object with constructor 'Object'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)
+    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13) {
+  [stack]: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)\n' +
+    '    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)',
+  [message]: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle"
+}
+2020-03-26T21:12:03.460Z : category controller : addUser :end
+2020-03-26T21:12:17.949Z : recommendations controller : addUser : start
+2020-03-26T21:12:17.949Z : users service : addUsers : start
+2020-03-26T21:12:17.949Z : users service : addUsers: catch TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ReplSet'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'coreTopology' -> object with constructor 'ReplSet'
+    |     ...
+    |     property 's' -> object with constructor 'Object'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)
+    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13) {
+  [stack]: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)\n' +
+    '    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)',
+  [message]: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle"
+}
+2020-03-26T21:12:17.951Z : category controller : addUser :end
+2020-03-26T21:13:30.206Z : recommendations controller : addUser : start
+2020-03-26T21:13:30.209Z : users service : addUsers : start
+2020-03-26T21:13:30.217Z : users service : addUsers: catch TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ReplSet'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'coreTopology' -> object with constructor 'ReplSet'
+    |     ...
+    |     property 's' -> object with constructor 'Object'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)
+    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13) {
+  [stack]: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)\n' +
+    '    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)',
+  [message]: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle"
+}
+2020-03-26T21:13:30.223Z : category controller : addUser :end
+2020-03-26T21:14:04.895Z : recommendations controller : addUser : start
+2020-03-26T21:14:04.897Z : users service : addUsers : start
+2020-03-26T21:14:04.906Z : users service : addUsers: catch TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ReplSet'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'coreTopology' -> object with constructor 'ReplSet'
+    |     ...
+    |     property 's' -> object with constructor 'Object'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:14:13)
+    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13) {
+  [stack]: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:14:13)\n' +
+    '    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)',
+  [message]: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle"
+}
+2020-03-26T21:14:04.916Z : category controller : addUser :end
+2020-03-26T21:14:25.593Z : recommendations controller : addUser : start
+2020-03-26T21:14:25.596Z : users service : addUsers : start
+2020-03-26T21:14:25.603Z : category controller : addUser :end
+2020-03-26T21:16:03.405Z : recommendations controller : addUser : start
+2020-03-26T21:16:03.410Z : users service : addUsers : start
+2020-03-26T21:16:03.421Z : users service : addUsers: catch TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ReplSet'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'coreTopology' -> object with constructor 'ReplSet'
+    |     ...
+    |     property 's' -> object with constructor 'Object'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:14:13)
+    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13) {
+  [stack]: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:14:13)\n' +
+    '    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)',
+  [message]: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle"
+}
+2020-03-26T21:16:03.426Z : category controller : addUser :end
+2020-03-26T21:16:52.268Z : recommendations controller : addUser : start
+2020-03-26T21:16:52.270Z : users service : addUsers : start
+2020-03-26T21:16:52.272Z : category controller : addUser :end
+2020-03-26T21:17:31.711Z : recommendations controller : addUser : start
+2020-03-26T21:17:31.712Z : users service : addUsers : start
+2020-03-26T21:17:31.715Z : category controller : addUser :end
+2020-03-26T21:18:26.046Z : recommendations controller : addUser : start
+2020-03-26T21:18:26.048Z : users service : addUsers : start
+2020-03-26T21:18:26.050Z : category controller : addUser :end
+2020-03-26T21:18:26.134Z : users service : addUsers: result { _id: 5e7d1c2291348e92a10aa2c9, ip: '12', __v: 0 }
+2020-03-26T21:18:36.445Z : recommendations controller : addUser : start
+2020-03-26T21:18:36.446Z : users service : addUsers : start
+2020-03-26T21:18:36.446Z : category controller : addUser :end
+2020-03-26T21:18:38.989Z : recommendations controller : addUser : start
+2020-03-26T21:18:38.989Z : users service : addUsers : start
+2020-03-26T21:18:38.989Z : category controller : addUser :end
+2020-03-26T21:18:39.826Z : recommendations controller : addUser : start
+2020-03-26T21:18:39.826Z : users service : addUsers : start
+2020-03-26T21:18:39.826Z : category controller : addUser :end
+2020-03-26T21:19:01.810Z : recommendations controller : addUser : start
+2020-03-26T21:19:01.811Z : users service : addUsers : start
+2020-03-26T21:19:01.811Z : category controller : addUser :end
+2020-03-26T21:19:01.875Z : users service : addUsers: result { _id: 5e7d1c4591348e92a10aa2ca, ip: '1', __v: 0 }
+2020-03-26T21:19:24.107Z : recommendations controller : addUser : start
+2020-03-26T21:19:24.109Z : users service : addUsers : start
+2020-03-26T21:19:24.111Z : category controller : addUser :end
+2020-03-26T21:19:24.814Z : recommendations controller : addUser : start
+2020-03-26T21:19:24.814Z : users service : addUsers : start
+2020-03-26T21:19:24.814Z : category controller : addUser :end
+2020-03-26T21:19:25.380Z : recommendations controller : addUser : start
+2020-03-26T21:19:25.380Z : users service : addUsers : start
+2020-03-26T21:19:25.381Z : category controller : addUser :end
