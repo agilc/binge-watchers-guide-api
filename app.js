@@ -1,13 +1,27 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
+const mongoose = require('mongoose');
 
+const { MONGODB_URL } = require('./constants/app');
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var recommendationsRouter = require('./routes/recommendations');
 
-var app = express();
+let app = express();
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "*");
+  next();
+});
+
+// Connection to mongoDB
+mongoose.connect(MONGODB_URL, { useNewUrlParser: true })
+    .then(()=> console.log("Connected to MongoDB"))
+    .catch(error => console.error("Could not connect to mongoDB",error));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -20,7 +34,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/recommendations', recommendationsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -1,0 +1,118 @@
+2020-03-26T11:02:28.122Z : category controller : createCategory : Input Validation error [Error [ValidationError]: "name" is required] {
+  [stack]: 'ValidationError: "name" is required',
+  [message]: '"name" is required',
+  _original: {},
+  details: [
+    {
+      message: '"name" is required',
+      path: [ 'name', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'name', key: 'name' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-26T11:02:56.597Z : category controller : createCategory : Input Validation error [Error [ValidationError]: "type" is required] {
+  [stack]: 'ValidationError: "type" is required',
+  [message]: '"type" is required',
+  _original: { name: 'Bahubali' },
+  details: [
+    {
+      message: '"type" is required',
+      path: [ 'type', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'type', key: 'type' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-26T11:03:13.376Z : category controller : createCategory : Input Validation error [Error [ValidationError]: "url" is required] {
+  [stack]: 'ValidationError: "url" is required',
+  [message]: '"url" is required',
+  _original: { name: 'Bahubali', type: 'movie' },
+  details: [
+    {
+      message: '"url" is required',
+      path: [ 'url', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'url', key: 'url' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-26T11:03:24.097Z : category service : listCategory: catch Error: cyclic dependency detected
+    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:333:34)
+    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)
+    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)
+    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)
+    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)
+    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)
+    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)
+    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)
+    at BSON.serialize (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/bson.js:64:28)
+    at Msg.serializeBson (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:126:22)
+    at Msg.makeDocumentSegment (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:118:33)
+    at Msg.toBin (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:104:25)
+    at serializeCommand (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/pool.js:779:41)
+    at Pool.write (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/pool.js:927:3)
+    at _command (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/wireprotocol/command.js:128:10)
+    at command (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/wireprotocol/command.js:28:5) {
+  [stack]: 'Error: cyclic dependency detected\n' +
+    '    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:333:34)\n' +
+    '    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)\n' +
+    '    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)\n' +
+    '    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)\n' +
+    '    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)\n' +
+    '    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)\n' +
+    '    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)\n' +
+    '    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)\n' +
+    '    at BSON.serialize (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/bson.js:64:28)\n' +
+    '    at Msg.serializeBson (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:126:22)\n' +
+    '    at Msg.makeDocumentSegment (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:118:33)\n' +
+    '    at Msg.toBin (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:104:25)\n' +
+    '    at serializeCommand (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/pool.js:779:41)\n' +
+    '    at Pool.write (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/pool.js:927:3)\n' +
+    '    at _command (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/wireprotocol/command.js:128:10)\n' +
+    '    at command (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/wireprotocol/command.js:28:5)',
+  [message]: 'cyclic dependency detected'
+}
+2020-03-26T11:06:28.604Z : category controller : editCategory : Input Validation error [Error [ValidationError]: "id" is required] {
+  [stack]: 'ValidationError: "id" is required',
+  [message]: '"id" is required',
+  _original: {},
+  details: [
+    {
+      message: '"id" is required',
+      path: [ 'id', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'id', key: 'id' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-26T11:08:35.498Z : category controller : editCategory: catch ReferenceError: name is not defined
+    at exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/recommendations.js:96:7)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: name is not defined\n' +
+    '    at exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/recommendations.js:96:7)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'name is not defined'
+}
+2020-03-26T11:09:40.277Z : category service : editCategory: catch ReferenceError: Category is not defined
+    at Object.exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/service/recommendations.js:46:18)
+    at exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/recommendations.js:101:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: Category is not defined\n' +
+    '    at Object.exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/service/recommendations.js:46:18)\n' +
+    '    at exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/recommendations.js:101:30)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Category is not defined'
+}
