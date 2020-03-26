@@ -175,3 +175,359 @@
   url: 'url',
   __v: 0
 }
+2020-03-26T14:36:21.804Z : recommendations controller : listRecommendations : start
+2020-03-26T14:36:21.806Z : recommendations controller : listRecommendations : Input Validation
+2020-03-26T14:36:21.813Z : recommendations controller : createCategory : Input Validation success
+2020-03-26T14:36:21.814Z : category service : createCategory : start
+2020-03-26T14:36:21.819Z : recommendations controller : listRecommendations :end
+2020-03-26T14:36:21.900Z : category service : createCategory: result {
+  upvotes: 0,
+  downvotes: 0,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-26T14:36:41.275Z : recommendations controller : listCategory : start
+2020-03-26T14:36:41.276Z : category controller : listCategory : Search Params {}
+2020-03-26T14:36:41.276Z : category service : listCategory : start
+2020-03-26T14:36:41.277Z : category controller : listCategory :end
+2020-03-26T14:36:41.326Z : category service : listCategory: result [
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7c8c4aaafcd076b558184a,
+    name: 'bahubali 2',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7cbde5b3d97380de28872b,
+    name: 'bigil',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  [length]: 2
+]
+2020-03-26T14:37:44.625Z : recommendations controller : editCategory : start
+2020-03-26T14:37:44.632Z : recommendations controller : editCategory : Input Validation success
+2020-03-26T14:37:44.634Z : category service : editCategory : start
+2020-03-26T14:37:44.637Z : recommendations controller : editCategory :end
+2020-03-26T14:37:44.692Z : category service : editCategory: result {
+  upvotes: 0,
+  downvotes: 0,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-26T14:37:48.839Z : recommendations controller : listCategory : start
+2020-03-26T14:37:48.840Z : category controller : listCategory : Search Params {}
+2020-03-26T14:37:48.840Z : category service : listCategory : start
+2020-03-26T14:37:48.841Z : category controller : listCategory :end
+2020-03-26T14:37:48.883Z : category service : listCategory: result [
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7c8c4aaafcd076b558184a,
+    name: 'bahubali 2',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7cbde5b3d97380de28872b,
+    name: 'bigil',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  [length]: 2
+]
+2020-03-26T14:37:49.925Z : recommendations controller : listCategory : start
+2020-03-26T14:37:49.926Z : category controller : listCategory : Search Params {}
+2020-03-26T14:37:49.926Z : category service : listCategory : start
+2020-03-26T14:37:49.926Z : category controller : listCategory :end
+2020-03-26T14:37:49.964Z : category service : listCategory: result [
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7c8c4aaafcd076b558184a,
+    name: 'bahubali 2',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7cbde5b3d97380de28872b,
+    name: 'bigil',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  [length]: 2
+]
+2020-03-26T14:38:34.844Z : recommendations controller : editCategory : start
+2020-03-26T14:38:34.846Z : category service : editCategory : start
+2020-03-26T14:38:34.848Z : recommendations controller : editCategory :end
+2020-03-26T14:38:34.910Z : category service : editCategory: result {
+  upvotes: 0,
+  downvotes: 0,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-26T14:38:38.108Z : recommendations controller : listCategory : start
+2020-03-26T14:38:38.109Z : category controller : listCategory : Search Params {}
+2020-03-26T14:38:38.109Z : category service : listCategory : start
+2020-03-26T14:38:38.110Z : category controller : listCategory :end
+2020-03-26T14:38:38.145Z : category service : listCategory: result [
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7c8c4aaafcd076b558184a,
+    name: 'bahubali 2',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  {
+    upvotes: 1,
+    downvotes: 0,
+    _id: 5e7cbde5b3d97380de28872b,
+    name: 'bigil',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  [length]: 2
+]
+2020-03-26T14:38:41.286Z : recommendations controller : editCategory : start
+2020-03-26T14:38:41.287Z : category service : editCategory : start
+2020-03-26T14:38:41.288Z : recommendations controller : editCategory :end
+2020-03-26T14:38:41.322Z : category service : editCategory: result {
+  upvotes: 1,
+  downvotes: 0,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-26T14:38:45.471Z : recommendations controller : listCategory : start
+2020-03-26T14:38:45.471Z : category controller : listCategory : Search Params {}
+2020-03-26T14:38:45.472Z : category service : listCategory : start
+2020-03-26T14:38:45.473Z : category controller : listCategory :end
+2020-03-26T14:38:45.510Z : category service : listCategory: result [
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7c8c4aaafcd076b558184a,
+    name: 'bahubali 2',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  {
+    upvotes: 2,
+    downvotes: 0,
+    _id: 5e7cbde5b3d97380de28872b,
+    name: 'bigil',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  [length]: 2
+]
+2020-03-26T14:40:13.778Z : recommendations controller : listRecommendations : start
+2020-03-26T14:40:13.780Z : recommendations controller : listRecommendations : Input Validation
+2020-03-26T14:40:13.792Z : recommendations controller : createCategory : Input Validation error [Error [ValidationError]: "name" is required] {
+  [stack]: 'ValidationError: "name" is required',
+  [message]: '"name" is required',
+  _original: { id: '5e7cbde5b3d97380de28872b' },
+  details: [
+    {
+      message: '"name" is required',
+      path: [ 'name', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'name', key: 'name' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-26T14:40:13.795Z : recommendations controller : listRecommendations :end
+2020-03-26T14:40:22.244Z : recommendations controller : editCategory : start
+2020-03-26T14:40:22.246Z : recommendations controller : editCategory : Input Validation success
+2020-03-26T14:40:22.247Z : category service : editCategory : start
+2020-03-26T14:40:22.249Z : recommendations controller : editCategory :end
+2020-03-26T14:40:22.300Z : category service : editCategory: result {
+  upvotes: 2,
+  downvotes: 0,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-26T14:40:26.486Z : recommendations controller : listCategory : start
+2020-03-26T14:40:26.487Z : category controller : listCategory : Search Params {}
+2020-03-26T14:40:26.487Z : category service : listCategory : start
+2020-03-26T14:40:26.487Z : category controller : listCategory :end
+2020-03-26T14:40:26.525Z : category service : listCategory: result [
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7c8c4aaafcd076b558184a,
+    name: 'bahubali 2',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  {
+    upvotes: 2,
+    downvotes: 0,
+    _id: 5e7cbde5b3d97380de28872b,
+    name: 'bigil',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  [length]: 2
+]
+2020-03-26T14:40:28.201Z : recommendations controller : listCategory : start
+2020-03-26T14:40:28.202Z : category controller : listCategory : Search Params {}
+2020-03-26T14:40:28.202Z : category service : listCategory : start
+2020-03-26T14:40:28.202Z : category controller : listCategory :end
+2020-03-26T14:40:28.239Z : category service : listCategory: result [
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7c8c4aaafcd076b558184a,
+    name: 'bahubali 2',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  {
+    upvotes: 2,
+    downvotes: 0,
+    _id: 5e7cbde5b3d97380de28872b,
+    name: 'bigil',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  [length]: 2
+]
+2020-03-26T14:40:40.418Z : recommendations controller : editCategory : start
+2020-03-26T14:40:40.421Z : category service : editCategory : start
+2020-03-26T14:40:40.424Z : recommendations controller : editCategory :end
+2020-03-26T14:40:40.482Z : category service : editCategory: result {
+  upvotes: 2,
+  downvotes: 0,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-26T14:40:43.265Z : recommendations controller : listCategory : start
+2020-03-26T14:40:43.265Z : category controller : listCategory : Search Params {}
+2020-03-26T14:40:43.265Z : category service : listCategory : start
+2020-03-26T14:40:43.266Z : category controller : listCategory :end
+2020-03-26T14:40:43.388Z : category service : listCategory: result [
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7c8c4aaafcd076b558184a,
+    name: 'bahubali 2',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  {
+    upvotes: 2,
+    downvotes: 1,
+    _id: 5e7cbde5b3d97380de28872b,
+    name: 'bigil',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  [length]: 2
+]
+2020-03-26T14:40:46.165Z : recommendations controller : editCategory : start
+2020-03-26T14:40:46.166Z : category service : editCategory : start
+2020-03-26T14:40:46.166Z : recommendations controller : editCategory :end
+2020-03-26T14:40:46.204Z : category service : editCategory: result {
+  upvotes: 2,
+  downvotes: 1,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-26T14:40:47.767Z : recommendations controller : editCategory : start
+2020-03-26T14:40:47.767Z : category service : editCategory : start
+2020-03-26T14:40:47.767Z : recommendations controller : editCategory :end
+2020-03-26T14:40:47.818Z : category service : editCategory: result {
+  upvotes: 2,
+  downvotes: 2,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-26T14:40:48.647Z : recommendations controller : editCategory : start
+2020-03-26T14:40:48.647Z : category service : editCategory : start
+2020-03-26T14:40:48.648Z : recommendations controller : editCategory :end
+2020-03-26T14:40:48.687Z : category service : editCategory: result {
+  upvotes: 2,
+  downvotes: 3,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-26T14:40:52.153Z : recommendations controller : listCategory : start
+2020-03-26T14:40:52.153Z : category controller : listCategory : Search Params {}
+2020-03-26T14:40:52.154Z : category service : listCategory : start
+2020-03-26T14:40:52.154Z : category controller : listCategory :end
+2020-03-26T14:40:52.182Z : category service : listCategory: result [
+  {
+    upvotes: 0,
+    downvotes: 0,
+    _id: 5e7c8c4aaafcd076b558184a,
+    name: 'bahubali 2',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  {
+    upvotes: 2,
+    downvotes: 4,
+    _id: 5e7cbde5b3d97380de28872b,
+    name: 'bigil',
+    type: 'movie',
+    url: 'url',
+    __v: 0
+  },
+  [length]: 2
+]

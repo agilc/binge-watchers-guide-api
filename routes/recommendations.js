@@ -7,5 +7,7 @@ let recommendationsController = require('../controller/recommendations');
 router.post('/', recommendationsController.createRecommendations);
 router.get('/', recommendationsController.listRecommendations);
 router.put('/', recommendationsController.editRecommendations);
+router.post('/upvote', recommendationsController.upvoteRecommendations);
+router.post('/downvote', recommendationsController.downvoteRecommendations);
 
 module.exports = router;

@@ -116,3 +116,19 @@
     '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
   [message]: 'Category is not defined'
 }
+2020-03-26T14:40:13.792Z : recommendations controller : createCategory : Input Validation error [Error [ValidationError]: "name" is required] {
+  [stack]: 'ValidationError: "name" is required',
+  [message]: '"name" is required',
+  _original: { id: '5e7cbde5b3d97380de28872b' },
+  details: [
+    {
+      message: '"name" is required',
+      path: [ 'name', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'name', key: 'name' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}

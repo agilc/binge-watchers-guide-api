@@ -6,7 +6,7 @@ const logger = require('../util/logger');
 
 exports.listRecommendations = async (req,res) => {
   try{
-    logger.debug("category controller : listCategory : start");
+    logger.debug("recommendations controller : listCategory : start");
     let { name, genre, type } = req.query;
     filterObj = {};
 
@@ -68,20 +68,20 @@ let createInputValidation = async (body) =>{
 
   const result = await schema.validate(body);
   if(result.error){
-    logger.error("category controller : createCategory : Input Validation error %o",result.error);
+    logger.error("recommendations controller : createCategory : Input Validation error %o",result.error);
     return {
       code:"input_data_issue",
       message: result.error.details[0].message.split('\"').join("")
     };
   }
   else{
-    logger.info("category controller : createCategory : Input Validation success");
+    logger.info("recommendations controller : createCategory : Input Validation success");
     return false;
   }
 }
 
 exports.editRecommendations = async (req,res) => {
-  logger.debug("category controller : editCategory : start");
+  logger.debug("recommendations controller : editCategory : start");
 
   try{
     let body = req.body;
@@ -101,10 +101,10 @@ exports.editRecommendations = async (req,res) => {
       recommendationsService.editRecommendations(res,body, body.id);
     }
 
-    logger.debug("category controller : editCategory :end");
+    logger.debug("recommendations controller : editCategory :end");
   }
   catch(error){
-    logger.error("category controller : editCategory: catch %o",error);
+    logger.error("recommendations controller : editCategory: catch %o",error);
     res.status(500);
     res.json({
       code:"internal_error",
@@ -124,15 +124,53 @@ let editInputValidation = async (body) =>{
 
   const result = await schema.validate(body);
   if(result.error){
-    logger.error("category controller : editCategory : Input Validation error %o",result.error);
+    logger.error("recommendations controller : editCategory : Input Validation error %o",result.error);
     return {
       code:"input_data_issue",
       message: result.error.details[0].message.split('\"').join("")
     };
   }
   else{
-    logger.info("category controller : editCategory : Input Validation success");
+    logger.info("recommendations controller : editCategory : Input Validation success");
     return false;
+  }
+}
+
+exports.upvoteRecommendations = async (req,res) => {
+  logger.debug("recommendations controller : editCategory : start");
+
+  try{
+    let body = req.body;
+    recommendationsService.upvoteRecommendations(res,body.id);
+
+    logger.debug("recommendations controller : editCategory :end");
+  }
+  catch(error){
+    logger.error("recommendations controller : editCategory: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
+  }
+}
+
+exports.downvoteRecommendations = async (req,res) => {
+  logger.debug("recommendations controller : editCategory : start");
+
+  try{
+    let body = req.body;
+    recommendationsService.downvoteRecommendations(res,body.id);
+
+    logger.debug("recommendations controller : editCategory :end");
+  }
+  catch(error){
+    logger.error("recommendations controller : editCategory: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
   }
 }
 

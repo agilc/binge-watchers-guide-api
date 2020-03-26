@@ -68,6 +68,62 @@ exports.editRecommendations = async (res, dataObj, id) => {
   } 
 }
 
+exports.upvoteRecommendations = async (res, id) => {
+  logger.debug("category service : editCategory : start");
+  try{
+    let result = await Recommendations.findByIdAndUpdate({_id: id}, {$inc: { upvotes: 1} });
+    if(!result){
+      logger.error("category service : editCategory: file not found %o",result);
+      res.status(404);
+      res.json({
+        code:"not_found",
+        message: "Resource not found"
+      });
+    }
+    else{
+      logger.info("category service : editCategory: result %o",result);
+      res.status(200);
+      res.json(result);
+    }
+  }
+  catch(error){
+    logger.error("category service : editCategory: catch %o",error);
+      res.status(500);
+      res.json({
+        code:"internal_error",
+        message: "Server encountered an error, Please try again after some time"
+      });
+  } 
+}
+
+
+exports.downvoteRecommendations = async (res, id) => {
+  logger.debug("category service : editCategory : start");
+  try{
+    let result = await Recommendations.findByIdAndUpdate({_id: id}, {$inc: { downvotes: 1} });
+    if(!result){
+      logger.error("category service : editCategory: file not found %o",result);
+      res.status(404);
+      res.json({
+        code:"not_found",
+        message: "Resource not found"
+      });
+    }
+    else{
+      logger.info("category service : editCategory: result %o",result);
+      res.status(200);
+      res.json(result);
+    }
+  }
+  catch(error){
+    logger.error("category service : editCategory: catch %o",error);
+      res.status(500);
+      res.json({
+        code:"internal_error",
+        message: "Server encountered an error, Please try again after some time"
+      });
+  } 
+}
 // exports.getCategory = async (res, categoryId) => {
 //   try{
 //     logger.debug("category service : getCategory : start");
