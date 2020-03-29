@@ -198,6 +198,9 @@ exports.addShow = async (res,body) => {
 
     const category = new Shows(body);
     let result = await category.save();
+    result.upvotes = 0;
+    result.downvotes = 0;
+    console.log("res",result);
     // logger.info("category service : createCategory: result %o",result);
     res.status(200);
     res.json({
