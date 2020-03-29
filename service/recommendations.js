@@ -134,10 +134,41 @@ exports.addGenres = async (res, body) => {
   }
   catch(error){
     logger.error("recommendations service : addShowType: catch %o",error);
-      res.status(500);
-      res.json({
-        code:"internal_error",
-        message: "Server encountered an error, Please try again after some time"
-      });
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
   } 
+}
+
+exports.getStatics = async (res) => {
+  logger.debug("recommendations service : getStatics : start");
+  try{
+    let genres = await Genres.find();
+    let languages = await Languages.find();
+    let types = await ShowTypes.find();
+
+    let response = {
+      types: types,
+      languages: languages,
+      genres: genres
+    }
+
+    res.status(200);
+    res.json({
+      success: true,
+      message: "Statics fetched successfully",
+      data: response
+    });
+
+  }
+  catch(error){
+    logger.error("recommendations service : getStatics: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
+  }
 }

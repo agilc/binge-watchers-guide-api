@@ -155,6 +155,22 @@ exports.addGenres = async (req,res) => {
   }
 }
 
+exports.getStatics = async(req, res) => {
+  logger.debug("recommendations controller : getStatics : start");
+  try{
+    recommendationsService.getStatics(res);
+    logger.debug("recommendations controller : getStatics : end");
+  }
+  catch(error){
+    logger.error("recommendations controller : getStatics: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
+  }
+}
+
 
 // module.exports.createInputValidation = createInputValidation;
 // module.exports.editInputValidation = editInputValidation;

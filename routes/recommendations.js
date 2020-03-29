@@ -12,5 +12,6 @@ router.post('/downvote', recommendationsController.downvoteRecommendations);
 router.post('/showtypes', recommendationsController.addShowType);
 router.post('/languages', recommendationsController.addLanguages);
 router.post('/genres', recommendationsController.addGenres);
+router.get('/statics', recommendationsController.getStatics);
 
 module.exports = router;
