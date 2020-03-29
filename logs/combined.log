@@ -1019,3 +1019,68 @@
 2020-03-29T03:21:08.243Z : users service : loginUSer : start
 2020-03-29T03:21:08.244Z : category controller : addUser :end
 2020-03-29T03:21:08.279Z : users service : loginUSer: invalid user name [ [length]: 0 ]
+2020-03-29T03:27:10.920Z : recommendations controller : addUser : start
+2020-03-29T03:27:10.928Z : category controller : addUser: catch ReferenceError: body is not defined
+    at exports.checkUsername (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:48:33)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at param (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:354:14)
+    at param (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:410:3)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12) {
+  [stack]: 'ReferenceError: body is not defined\n' +
+    '    at exports.checkUsername (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:48:33)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at param (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:354:14)\n' +
+    '    at param (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:365:14)\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:410:3)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:284:7\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)',
+  [message]: 'body is not defined'
+}
+2020-03-29T03:27:44.014Z : recommendations controller : addUser : start
+2020-03-29T03:27:44.018Z : users service : loginUSer : start
+2020-03-29T03:27:44.021Z : category controller : addUser :end
+2020-03-29T03:27:44.080Z : users service : loginUSer: result [
+  {
+    _id: 5e80106a448b29deffa67830,
+    username: 'agil',
+    password: '$2a$12$UwUX3xfXjAbsYcxHNZt4T.tjY/owCuoQseWOieSAg6x9stxwNszI.',
+    __v: 0
+  },
+  [length]: 1
+]
+2020-03-29T03:27:49.259Z : recommendations controller : addUser : start
+2020-03-29T03:27:49.259Z : users service : loginUSer : start
+2020-03-29T03:27:49.260Z : category controller : addUser :end
+2020-03-29T03:27:49.295Z : users service : loginUSer: invalid user name [ [length]: 0 ]
+2020-03-29T03:27:53.248Z : recommendations controller : addUser : start
+2020-03-29T03:27:53.248Z : users service : loginUSer : start
+2020-03-29T03:27:53.249Z : category controller : addUser :end
+2020-03-29T03:27:53.278Z : users service : loginUSer: result [
+  {
+    _id: 5e80106a448b29deffa67830,
+    username: 'agil',
+    password: '$2a$12$UwUX3xfXjAbsYcxHNZt4T.tjY/owCuoQseWOieSAg6x9stxwNszI.',
+    __v: 0
+  },
+  [length]: 1
+]

@@ -78,3 +78,34 @@ exports.loginUser = async (res,body) => {
     });
   } 
 }
+
+exports.checkUsername = async (res,username) => {
+  try{
+    logger.debug("users service : loginUSer : start");
+    let user = await User.find({username: username});
+
+    if(!user.length){
+      logger.error("users service : loginUSer: invalid user name %o",user);
+      res.status(401);
+      res.json({
+        code:"unauthorized",
+        message: "Invalid username"
+      });
+      return;
+    }
+
+    logger.info("users service : loginUSer: result %o",user);
+    res.status(200);
+    res.json({
+      code:"success",
+    });
+  }
+  catch(error){
+    logger.error("users service : loginUSer: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
+  } 
+}

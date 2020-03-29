@@ -39,3 +39,21 @@ exports.loginUser = async (req,res) => {
     });
   }
 }
+
+exports.checkUsername = async (req,res) => {
+  try{
+    logger.debug("recommendations controller : addUser : start");
+    let { username } = req.params;
+
+    usersService.checkUsername(res, username);
+    logger.debug("category controller : addUser :end");
+  }
+  catch(error){
+    logger.error("category controller : addUser: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
+  }
+}
