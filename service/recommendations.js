@@ -145,9 +145,9 @@ exports.addGenres = async (res, body) => {
 exports.getStatics = async (res) => {
   logger.debug("recommendations service : getStatics : start");
   try{
-    let genres = await Genres.find();
-    let languages = await Languages.find();
-    let types = await ShowTypes.find();
+    let genres = await Genres.find().select('name');;
+    let languages = await Languages.find().select('name');;
+    let types = await ShowTypes.find().select('name');;
 
     let response = {
       types: types,
