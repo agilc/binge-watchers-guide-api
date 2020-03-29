@@ -42,7 +42,9 @@ exports.getShows = async (res, filterObj, user_id) => {
     res.json({
       success: true,
       message: "Shows fetched successfully",
-      data: newResult
+      data: {
+        shows: newResult
+      }
     });
   }
   catch(error){

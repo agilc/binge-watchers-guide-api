@@ -200,7 +200,13 @@ exports.addShow = async (res,body) => {
     let result = await category.save();
     // logger.info("category service : createCategory: result %o",result);
     res.status(200);
-    res.json(result);
+    res.json({
+      success: true,
+      message: "Show added successfully",
+      data: {
+        show: result
+      }
+    });
   }
   catch(error){
     logger.error("users service : addShow: catch %o",error);
