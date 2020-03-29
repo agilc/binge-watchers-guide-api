@@ -4,35 +4,54 @@ const { hashSync, compareSync } = require('bcryptjs');
 const { BCRYPT_SALT_ROUND } = require('../constants/app');
 const { User } = require('../model/users');
 const logger = require('../util/logger');
+const {generateToken} = require('../util/token');
 
 exports.addUsers = async (res,body) => {
   try{
     logger.debug("users service : addUsers : start");
     let { username, password } = body;
-    let user = await User.find({username: username});
+    let user = await User.findOne({username: username});
 
-    if(user.length){
+    if(user){
       logger.error("users service : addUsers: duplicate user %o",user);
       res.status(409);
       res.json({
-        code:"conflisct",
-        message: "User already exists"
+        status: false,
+        code:"conflict",
+        message: "This username already exists.",
+        data: {
+          username
+        }
       });
       return;
     }
 
     user = new User({username: username, password: hashSync(password, BCRYPT_SALT_ROUND ) });
-    let result = await user.save();
+    let result = (await user.save()).toJSON();
+
+    const {password: passwordHash, __v, ...userInfo} = result
+    userInfo.token = await generateToken(result._id)
+
+
     logger.info("users service : addUsers: result %o",result);
-    res.status(200);
-    res.json(result);
+    res.status(201);
+    res.json({ 
+      status: true,
+      code: "ok",
+      message: "Registered successfully.",
+      data: { user: userInfo }
+    });
   }
   catch(error){
     logger.error("users service : addUsers: catch %o",error);
     res.status(500);
     res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
+      success: false,
+      code: "internal_error",
+      message: "Server encountered an error, Please try again after some time",
+      data: {
+        error: error.toString()
+      }
     });
   } 
 }
@@ -41,33 +60,50 @@ exports.loginUser = async (res,body) => {
   try{
     logger.debug("users service : loginUSer : start");
     let { username, password } = body;
-    let user = await User.find({username: username});
+    let user = await User.findOne({username: username}).lean();
 
-    if(!user.length){
+    if(!user){
       logger.error("users service : loginUSer: invalid user name %o",user);
       res.status(401);
       res.json({
+        success: false,
         code:"unauthorized",
-        message: "Invalid username"
+        message: "Invalid username or password",
+        data: {
+          username
+        }
       });
       return;
     }
 
-    const isAuthenticated = compareSync(password, user[0].password);
+    const isAuthenticated = compareSync(password, user.password);
 
     if(!isAuthenticated){
       logger.error("users service : loginUSer: invalid password %o",user);
       res.status(401);
       res.json({
+        success: false,
         code:"unauthorized",
-        message: "Invalid password"
+        message: "Invalid username or password",
+        data: {
+          username
+        }
       });
       return;
     }
 
+    const {password: passwordHash, __v, ...userInfo} = user
+
+    userInfo.token = await generateToken(user._id)
+
     logger.info("users service : loginUSer: result %o",user);
     res.status(200);
-    res.json(user);
+    res.json({
+      status: true,
+      code: "ok",
+      message: "Logged in successfully.",
+      data: { user: userInfo }
+    });
   }
   catch(error){
     logger.error("users service : loginUSer: catch %o",error);
@@ -82,14 +118,18 @@ exports.loginUser = async (res,body) => {
 exports.checkUsername = async (res,username) => {
   try{
     logger.debug("users service : loginUSer : start");
-    let user = await User.find({username: username});
+    let user = await User.findOne({username: username});
 
-    if(!user.length){
+    if(user){
       logger.error("users service : loginUSer: invalid user name %o",user);
       res.status(401);
       res.json({
-        code:"unauthorized",
-        message: "Invalid username"
+        success: false,
+        code:"exists",
+        message: "Username already exists.",
+        data: {
+          username
+        }
       });
       return;
     }
@@ -97,7 +137,12 @@ exports.checkUsername = async (res,username) => {
     logger.info("users service : loginUSer: result %o",user);
     res.status(200);
     res.json({
-      code:"success",
+      success: true,
+      code:"ok",
+      message: "Username doesn't exists.",
+      data: {
+        username
+      }
     });
   }
   catch(error){
