@@ -3,16 +3,46 @@
 const { ShowTypes, Languages, Genres, Shows } = require('../model/recommendations');
 const logger = require('../util/logger');
 
-exports.getShows = async (res, filterObj) => {
+exports.getShows = async (res, filterObj, user_id) => {
   try{
     logger.debug("category service : listCategory : start");
     let result = await Shows.find(filterObj);
-    logger.info("category service : listCategory: result %o",result);
+    // logger.info("category service : listCategory: result %o",result);
+
+    // let newResult = result.map(item => {
+    //   let tempItem = item;
+    //   console.log("item",item);
+    //   return{ ...tempItem, upvotes: tempItem.upvotes.length, downvotes: tempItem.downvotes.length}
+    // })
+    let newResult = [];
+    result.forEach(item => {
+      let updatedValue ={ 
+        _id: item._id,
+        name: item.name,
+        type: item.type,
+        url: item.url,
+        language: item.language,
+        genres: item.genres,
+        upvotes: item.upvotes.length, 
+        downvotes: item.downvotes.length,
+        createdBy: item.createdBy
+      };
+
+      if(user_id){
+        item.upvotes.includes(user_id) && (updatedValue['haveUpvoted'] = true)
+        item.downvotes.includes(user_id) && (updatedValue['haveDownvoted'] = true)
+      }
+
+      newResult.push(updatedValue);
+    })
+
+    console.log("newResult",newResult)
+
     res.status(200);
     res.json({
       success: true,
       message: "Shows fetched successfully",
-      data: result
+      data: newResult
     });
   }
   catch(error){

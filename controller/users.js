@@ -93,7 +93,7 @@ let createInputValidation = async (body) =>{
     name: Joi.string().required(),
     description: Joi.string(),
     type: Joi.string().required(),
-    url: Joi.string().required(),
+    url: Joi.string(),
     language: Joi.string().required(),
     genres: Joi.array().required()
   });

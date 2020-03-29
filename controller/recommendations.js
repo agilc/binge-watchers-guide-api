@@ -7,7 +7,7 @@ const logger = require('../util/logger');
 exports.getShows = async (req, res) => {
   try{
     logger.debug("recommendations controller : getShows : start");
-    let { language, genre, type } = req.query;
+    let { language, genre, type, user_id } = req.query;
     filterObj = {};
 
     language && (filterObj["language"] = language);
@@ -16,7 +16,7 @@ exports.getShows = async (req, res) => {
     console.log("filterObj",filterObj);
 
     logger.debug("category controller : getShows : Search Params %o", filterObj);
-    recommendationsService.getShows(res, filterObj);
+    recommendationsService.getShows(res, filterObj, user_id);
     logger.debug("category controller : getShows :end");
   }
   catch(error){
