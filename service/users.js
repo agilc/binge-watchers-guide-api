@@ -196,8 +196,8 @@ exports.addShow = async (res,body) => {
       return;
     }
 
-    const category = new Shows(body);
-    let result = await category.save();
+    const show = new Shows(body);
+    let result = (await show.save()).toObject();
     result.upvotes = 0;
     result.downvotes = 0;
     console.log("res",result);
