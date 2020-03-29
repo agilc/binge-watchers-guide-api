@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const User = mongoose.model('User', new mongoose.Schema({
-    ip: { type: String }
+    username: { type: String, require: true },
+    password: { type: String, require: true }
   }));
 
 

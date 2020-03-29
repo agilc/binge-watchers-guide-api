@@ -859,3 +859,163 @@
 2020-03-26T21:19:25.380Z : recommendations controller : addUser : start
 2020-03-26T21:19:25.380Z : users service : addUsers : start
 2020-03-26T21:19:25.381Z : category controller : addUser :end
+2020-03-29T02:32:35.433Z : recommendations controller : editCategory : start
+2020-03-29T02:32:35.437Z : category service : editCategory : start
+2020-03-29T02:32:35.442Z : recommendations controller : editCategory :end
+2020-03-29T02:32:35.503Z : category service : editCategory: result {
+  upvotes: 2,
+  downvotes: 4,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-29T02:32:38.604Z : recommendations controller : editCategory : start
+2020-03-29T02:32:38.605Z : category service : editCategory : start
+2020-03-29T02:32:38.605Z : recommendations controller : editCategory :end
+2020-03-29T02:32:38.648Z : category service : editCategory: result {
+  upvotes: 3,
+  downvotes: 4,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-29T02:32:39.453Z : recommendations controller : editCategory : start
+2020-03-29T02:32:39.453Z : category service : editCategory : start
+2020-03-29T02:32:39.454Z : recommendations controller : editCategory :end
+2020-03-29T02:32:39.488Z : category service : editCategory: result {
+  upvotes: 4,
+  downvotes: 4,
+  _id: 5e7cbde5b3d97380de28872b,
+  name: 'bigil',
+  type: 'movie',
+  url: 'url',
+  __v: 0
+}
+2020-03-29T03:02:44.880Z : recommendations controller : addUser : start
+2020-03-29T03:02:44.883Z : users service : addUsers : start
+2020-03-29T03:02:44.887Z : category controller : addUser :end
+2020-03-29T03:02:44.929Z : users service : addUsers: catch ReferenceError: error is not defined
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:15:57)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: error is not defined\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:15:57)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'error is not defined'
+}
+2020-03-29T03:03:38.816Z : recommendations controller : addUser : start
+2020-03-29T03:03:38.819Z : users service : addUsers : start
+2020-03-29T03:03:38.821Z : category controller : addUser :end
+2020-03-29T03:03:38.867Z : users service : addUsers: duplicate user
+2020-03-29T03:04:26.771Z : recommendations controller : addUser : start
+2020-03-29T03:04:26.771Z : users service : addUsers : start
+2020-03-29T03:04:26.772Z : category controller : addUser :end
+2020-03-29T03:04:26.802Z : users service : addUsers: duplicate user
+2020-03-29T03:05:02.331Z : recommendations controller : addUser : start
+2020-03-29T03:05:02.333Z : users service : addUsers : start
+2020-03-29T03:05:02.335Z : category controller : addUser :end
+2020-03-29T03:05:02.376Z : users service : addUsers: duplicate user [ [length]: 0 ]
+2020-03-29T03:05:14.407Z : recommendations controller : addUser : start
+2020-03-29T03:05:14.410Z : users service : addUsers : start
+2020-03-29T03:05:14.414Z : category controller : addUser :end
+2020-03-29T03:05:14.813Z : users service : addUsers: result {
+  _id: 5e80106a448b29deffa67830,
+  username: 'agil',
+  password: '$2a$12$UwUX3xfXjAbsYcxHNZt4T.tjY/owCuoQseWOieSAg6x9stxwNszI.',
+  __v: 0
+}
+2020-03-29T03:05:18.448Z : recommendations controller : addUser : start
+2020-03-29T03:05:18.448Z : users service : addUsers : start
+2020-03-29T03:05:18.449Z : category controller : addUser :end
+2020-03-29T03:05:18.489Z : users service : addUsers: duplicate user [
+  {
+    _id: 5e80106a448b29deffa67830,
+    username: 'agil',
+    password: '$2a$12$UwUX3xfXjAbsYcxHNZt4T.tjY/owCuoQseWOieSAg6x9stxwNszI.',
+    __v: 0
+  },
+  [length]: 1
+]
+2020-03-29T03:11:50.838Z : recommendations controller : addUser : start
+2020-03-29T03:11:50.840Z : users service : loginUSer : start
+2020-03-29T03:11:50.842Z : category controller : addUser :end
+2020-03-29T03:11:50.891Z : users service : loginUSer: catch Error: Illegal arguments: string, undefined
+    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)
+    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:56:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'Error: Illegal arguments: string, undefined\n' +
+    '    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)\n' +
+    '    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:56:29)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Illegal arguments: string, undefined'
+}
+2020-03-29T03:19:16.638Z : recommendations controller : addUser : start
+2020-03-29T03:19:16.644Z : users service : loginUSer : start
+2020-03-29T03:19:16.649Z : category controller : addUser :end
+2020-03-29T03:19:16.729Z : users service : loginUSer: catch Error: Illegal arguments: string, undefined
+    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)
+    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:56:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'Error: Illegal arguments: string, undefined\n' +
+    '    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)\n' +
+    '    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:56:29)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Illegal arguments: string, undefined'
+}
+2020-03-29T03:20:15.040Z : recommendations controller : addUser : start
+2020-03-29T03:20:15.043Z : users service : loginUSer : start
+2020-03-29T03:20:15.046Z : category controller : addUser :end
+2020-03-29T03:20:15.100Z : users service : loginUSer: catch Error: Illegal arguments: string, undefined
+    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)
+    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:57:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'Error: Illegal arguments: string, undefined\n' +
+    '    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)\n' +
+    '    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:57:29)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Illegal arguments: string, undefined'
+}
+2020-03-29T03:20:29.518Z : recommendations controller : addUser : start
+2020-03-29T03:20:29.521Z : users service : loginUSer : start
+2020-03-29T03:20:29.525Z : category controller : addUser :end
+2020-03-29T03:20:29.584Z : users service : loginUSer: catch Error: Illegal arguments: string, undefined
+    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)
+    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:57:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'Error: Illegal arguments: string, undefined\n' +
+    '    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)\n' +
+    '    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:57:29)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Illegal arguments: string, undefined'
+}
+2020-03-29T03:20:42.366Z : recommendations controller : addUser : start
+2020-03-29T03:20:42.368Z : users service : loginUSer : start
+2020-03-29T03:20:42.373Z : category controller : addUser :end
+2020-03-29T03:20:42.735Z : users service : loginUSer: result [
+  {
+    _id: 5e80106a448b29deffa67830,
+    username: 'agil',
+    password: '$2a$12$UwUX3xfXjAbsYcxHNZt4T.tjY/owCuoQseWOieSAg6x9stxwNszI.',
+    __v: 0
+  },
+  [length]: 1
+]
+2020-03-29T03:21:00.020Z : recommendations controller : addUser : start
+2020-03-29T03:21:00.023Z : users service : loginUSer : start
+2020-03-29T03:21:00.027Z : category controller : addUser :end
+2020-03-29T03:21:00.404Z : users service : loginUSer: invalid password [
+  {
+    _id: 5e80106a448b29deffa67830,
+    username: 'agil',
+    password: '$2a$12$UwUX3xfXjAbsYcxHNZt4T.tjY/owCuoQseWOieSAg6x9stxwNszI.',
+    __v: 0
+  },
+  [length]: 1
+]
+2020-03-29T03:21:08.243Z : recommendations controller : addUser : start
+2020-03-29T03:21:08.243Z : users service : loginUSer : start
+2020-03-29T03:21:08.244Z : category controller : addUser :end
+2020-03-29T03:21:08.279Z : users service : loginUSer: invalid user name [ [length]: 0 ]
