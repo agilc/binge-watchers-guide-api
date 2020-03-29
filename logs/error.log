@@ -1,0 +1,886 @@
+2020-03-26T11:02:28.122Z : category controller : createCategory : Input Validation error [Error [ValidationError]: "name" is required] {
+  [stack]: 'ValidationError: "name" is required',
+  [message]: '"name" is required',
+  _original: {},
+  details: [
+    {
+      message: '"name" is required',
+      path: [ 'name', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'name', key: 'name' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-26T11:02:56.597Z : category controller : createCategory : Input Validation error [Error [ValidationError]: "type" is required] {
+  [stack]: 'ValidationError: "type" is required',
+  [message]: '"type" is required',
+  _original: { name: 'Bahubali' },
+  details: [
+    {
+      message: '"type" is required',
+      path: [ 'type', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'type', key: 'type' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-26T11:03:13.376Z : category controller : createCategory : Input Validation error [Error [ValidationError]: "url" is required] {
+  [stack]: 'ValidationError: "url" is required',
+  [message]: '"url" is required',
+  _original: { name: 'Bahubali', type: 'movie' },
+  details: [
+    {
+      message: '"url" is required',
+      path: [ 'url', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'url', key: 'url' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-26T11:03:24.097Z : category service : listCategory: catch Error: cyclic dependency detected
+    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:333:34)
+    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)
+    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)
+    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)
+    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)
+    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)
+    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)
+    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)
+    at BSON.serialize (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/bson.js:64:28)
+    at Msg.serializeBson (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:126:22)
+    at Msg.makeDocumentSegment (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:118:33)
+    at Msg.toBin (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:104:25)
+    at serializeCommand (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/pool.js:779:41)
+    at Pool.write (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/pool.js:927:3)
+    at _command (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/wireprotocol/command.js:128:10)
+    at command (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/wireprotocol/command.js:28:5) {
+  [stack]: 'Error: cyclic dependency detected\n' +
+    '    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:333:34)\n' +
+    '    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)\n' +
+    '    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)\n' +
+    '    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)\n' +
+    '    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)\n' +
+    '    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)\n' +
+    '    at serializeObject (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:347:18)\n' +
+    '    at serializeInto (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/parser/serializer.js:941:17)\n' +
+    '    at BSON.serialize (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/bson.js:64:28)\n' +
+    '    at Msg.serializeBson (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:126:22)\n' +
+    '    at Msg.makeDocumentSegment (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:118:33)\n' +
+    '    at Msg.toBin (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/msg.js:104:25)\n' +
+    '    at serializeCommand (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/pool.js:779:41)\n' +
+    '    at Pool.write (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/connection/pool.js:927:3)\n' +
+    '    at _command (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/wireprotocol/command.js:128:10)\n' +
+    '    at command (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongodb/lib/core/wireprotocol/command.js:28:5)',
+  [message]: 'cyclic dependency detected'
+}
+2020-03-26T11:06:28.604Z : category controller : editCategory : Input Validation error [Error [ValidationError]: "id" is required] {
+  [stack]: 'ValidationError: "id" is required',
+  [message]: '"id" is required',
+  _original: {},
+  details: [
+    {
+      message: '"id" is required',
+      path: [ 'id', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'id', key: 'id' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-26T11:08:35.498Z : category controller : editCategory: catch ReferenceError: name is not defined
+    at exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/recommendations.js:96:7)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: name is not defined\n' +
+    '    at exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/recommendations.js:96:7)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'name is not defined'
+}
+2020-03-26T11:09:40.277Z : category service : editCategory: catch ReferenceError: Category is not defined
+    at Object.exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/service/recommendations.js:46:18)
+    at exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/recommendations.js:101:30)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: Category is not defined\n' +
+    '    at Object.exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/service/recommendations.js:46:18)\n' +
+    '    at exports.editRecommendations (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/recommendations.js:101:30)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Category is not defined'
+}
+2020-03-26T14:40:13.792Z : recommendations controller : createCategory : Input Validation error [Error [ValidationError]: "name" is required] {
+  [stack]: 'ValidationError: "name" is required',
+  [message]: '"name" is required',
+  _original: { id: '5e7cbde5b3d97380de28872b' },
+  details: [
+    {
+      message: '"name" is required',
+      path: [ 'name', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'name', key: 'name' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-26T21:12:03.452Z : users service : addUsers: catch TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ReplSet'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'coreTopology' -> object with constructor 'ReplSet'
+    |     ...
+    |     property 's' -> object with constructor 'Object'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)
+    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13) {
+  [stack]: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)\n' +
+    '    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)',
+  [message]: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle"
+}
+2020-03-26T21:12:17.949Z : users service : addUsers: catch TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ReplSet'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'coreTopology' -> object with constructor 'ReplSet'
+    |     ...
+    |     property 's' -> object with constructor 'Object'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)
+    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13) {
+  [stack]: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)\n' +
+    '    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)',
+  [message]: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle"
+}
+2020-03-26T21:13:30.217Z : users service : addUsers: catch TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ReplSet'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'coreTopology' -> object with constructor 'ReplSet'
+    |     ...
+    |     property 's' -> object with constructor 'Object'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)
+    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13) {
+  [stack]: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:13:13)\n' +
+    '    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)',
+  [message]: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle"
+}
+2020-03-26T21:14:04.906Z : users service : addUsers: catch TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ReplSet'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'coreTopology' -> object with constructor 'ReplSet'
+    |     ...
+    |     property 's' -> object with constructor 'Object'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:14:13)
+    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13) {
+  [stack]: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:14:13)\n' +
+    '    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)',
+  [message]: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle"
+}
+2020-03-26T21:16:03.421Z : users service : addUsers: catch TypeError: Converting circular structure to JSON
+    --> starting at object with constructor 'ReplSet'
+    |     property 's' -> object with constructor 'Object'
+    |     property 'coreTopology' -> object with constructor 'ReplSet'
+    |     ...
+    |     property 's' -> object with constructor 'Object'
+    --- property 'topology' closes the circle
+    at JSON.stringify (<anonymous>)
+    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:14:13)
+    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13) {
+  [stack]: 'TypeError: Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle\n" +
+    '    at JSON.stringify (<anonymous>)\n' +
+    '    at stringify (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:1119:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:260:14)\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:14:13)\n' +
+    '    at exports.addUser (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:12:18)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)',
+  [message]: 'Converting circular structure to JSON\n' +
+    "    --> starting at object with constructor 'ReplSet'\n" +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    |     property 'coreTopology' -> object with constructor 'ReplSet'\n" +
+    '    |     ...\n' +
+    "    |     property 's' -> object with constructor 'Object'\n" +
+    "    --- property 'topology' closes the circle"
+}
+2020-03-29T03:02:44.929Z : users service : addUsers: catch ReferenceError: error is not defined
+    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:15:57)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: error is not defined\n' +
+    '    at Object.exports.addUsers (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:15:57)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'error is not defined'
+}
+2020-03-29T03:03:38.867Z : users service : addUsers: duplicate user
+2020-03-29T03:04:26.802Z : users service : addUsers: duplicate user
+2020-03-29T03:05:02.376Z : users service : addUsers: duplicate user [ [length]: 0 ]
+2020-03-29T03:05:18.489Z : users service : addUsers: duplicate user [
+  {
+    _id: 5e80106a448b29deffa67830,
+    username: 'agil',
+    password: '$2a$12$UwUX3xfXjAbsYcxHNZt4T.tjY/owCuoQseWOieSAg6x9stxwNszI.',
+    __v: 0
+  },
+  [length]: 1
+]
+2020-03-29T03:11:50.891Z : users service : loginUSer: catch Error: Illegal arguments: string, undefined
+    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)
+    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:56:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'Error: Illegal arguments: string, undefined\n' +
+    '    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)\n' +
+    '    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:56:29)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Illegal arguments: string, undefined'
+}
+2020-03-29T03:19:16.729Z : users service : loginUSer: catch Error: Illegal arguments: string, undefined
+    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)
+    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:56:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'Error: Illegal arguments: string, undefined\n' +
+    '    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)\n' +
+    '    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:56:29)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Illegal arguments: string, undefined'
+}
+2020-03-29T03:20:15.100Z : users service : loginUSer: catch Error: Illegal arguments: string, undefined
+    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)
+    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:57:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'Error: Illegal arguments: string, undefined\n' +
+    '    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)\n' +
+    '    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:57:29)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Illegal arguments: string, undefined'
+}
+2020-03-29T03:20:29.584Z : users service : loginUSer: catch Error: Illegal arguments: string, undefined
+    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)
+    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:57:29)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'Error: Illegal arguments: string, undefined\n' +
+    '    at bcrypt.compareSync (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bcryptjs/dist/bcrypt.js:265:19)\n' +
+    '    at Object.exports.loginUser (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:57:29)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Illegal arguments: string, undefined'
+}
+2020-03-29T03:21:00.404Z : users service : loginUSer: invalid password [
+  {
+    _id: 5e80106a448b29deffa67830,
+    username: 'agil',
+    password: '$2a$12$UwUX3xfXjAbsYcxHNZt4T.tjY/owCuoQseWOieSAg6x9stxwNszI.',
+    __v: 0
+  },
+  [length]: 1
+]
+2020-03-29T03:21:08.279Z : users service : loginUSer: invalid user name [ [length]: 0 ]
+2020-03-29T03:27:10.928Z : category controller : addUser: catch ReferenceError: body is not defined
+    at exports.checkUsername (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:48:33)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at param (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:354:14)
+    at param (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:365:14)
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:410:3)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12) {
+  [stack]: 'ReferenceError: body is not defined\n' +
+    '    at exports.checkUsername (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:48:33)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at param (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:354:14)\n' +
+    '    at param (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:365:14)\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:410:3)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:284:7\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)',
+  [message]: 'body is not defined'
+}
+2020-03-29T03:27:49.295Z : users service : loginUSer: invalid user name [ [length]: 0 ]
+2020-03-29T04:59:53.369Z : recommendations controller : createCategory : Input Validation error [Error [ValidationError]: "language" is required] {
+  [stack]: 'ValidationError: "language" is required',
+  [message]: '"language" is required',
+  _original: { name: 'Bahubali', type: 'movie', url: 'url', createdBy: '32' },
+  details: [
+    {
+      message: '"language" is required',
+      path: [ 'language', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'language', key: 'language' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-29T05:00:09.044Z : recommendations controller : createCategory : Input Validation error [Error [ValidationError]: "genres" is required] {
+  [stack]: 'ValidationError: "genres" is required',
+  [message]: '"genres" is required',
+  _original: {
+    name: 'Bahubali',
+    type: 'movie',
+    url: 'url',
+    language: 'English',
+    createdBy: '32'
+  },
+  details: [
+    {
+      message: '"genres" is required',
+      path: [ 'genres', [length]: 1 ],
+      type: 'any.required',
+      context: { label: 'genres', key: 'genres' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-29T05:00:20.915Z : recommendations controller : createCategory : Input Validation error [Error [ValidationError]: "genres" must be an array] {
+  [stack]: 'ValidationError: "genres" must be an array',
+  [message]: '"genres" must be an array',
+  _original: {
+    name: 'Bahubali',
+    type: 'movie',
+    url: 'url',
+    language: 'English',
+    genres: 'fd',
+    createdBy: '32'
+  },
+  details: [
+    {
+      message: '"genres" must be an array',
+      path: [ 'genres', [length]: 1 ],
+      type: 'array.base',
+      context: { label: 'genres', value: 'fd', key: 'genres' }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-29T05:01:33.197Z : recommendations controller : createCategory : Input Validation error [Error [ValidationError]: "createdBy" is not allowed] {
+  [stack]: 'ValidationError: "createdBy" is not allowed',
+  [message]: '"createdBy" is not allowed',
+  _original: {
+    name: 'Bahubali',
+    type: 'movie',
+    url: 'url',
+    language: 'English',
+    genres: [ 'we', 'are', [length]: 2 ],
+    createdBy: '32'
+  },
+  details: [
+    {
+      message: '"createdBy" is not allowed',
+      path: [ 'createdBy', [length]: 1 ],
+      type: 'object.unknown',
+      context: {
+        child: 'createdBy',
+        label: 'createdBy',
+        value: '32',
+        key: 'createdBy'
+      }
+    },
+    [length]: 1
+  ],
+  isJoi: true,
+  name: 'ValidationError'
+}
+2020-03-29T05:54:42.801Z : category service : createCategory: catch ReferenceError: genre is not defined
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:126:5)
+    at exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:102:20)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: genre is not defined\n' +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:126:5)\n' +
+    '    at exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:102:20)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'genre is not defined'
+}
+2020-03-29T05:56:21.208Z : category service : createCategory: catch ReferenceError: genre is not defined
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:127:5)
+    at exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:102:20)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: genre is not defined\n' +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:127:5)\n' +
+    '    at exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:102:20)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'genre is not defined'
+}
+2020-03-29T05:59:39.283Z : category service : createCategory: catch ReferenceError: genre is not defined
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:131:5)
+    at exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:102:20)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: genre is not defined\n' +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:131:5)\n' +
+    '    at exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:102:20)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'genre is not defined'
+}
+2020-03-29T06:00:18.882Z : category service : createCategory: catch Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:526:11)
+    at ServerResponse.header (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:267:15)
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:144:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n' +
+    '    at ServerResponse.setHeader (_http_outgoing.js:526:11)\n' +
+    '    at ServerResponse.header (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:767:10)\n' +
+    '    at ServerResponse.send (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:170:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:267:15)\n' +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:144:9)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Cannot set headers after they are sent to the client',
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+2020-03-29T06:01:20.867Z : category service : createCategory: catch Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (_http_outgoing.js:526:11)
+    at ServerResponse.header (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:767:10)
+    at ServerResponse.send (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:170:12)
+    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:267:15)
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:149:9)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client\n' +
+    '    at ServerResponse.setHeader (_http_outgoing.js:526:11)\n' +
+    '    at ServerResponse.header (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:767:10)\n' +
+    '    at ServerResponse.send (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:170:12)\n' +
+    '    at ServerResponse.json (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/response.js:267:15)\n' +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:149:9)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Cannot set headers after they are sent to the client',
+  code: 'ERR_HTTP_HEADERS_SENT'
+}
+2020-03-29T06:21:09.542Z : recommendations service : addShowType: catch ReferenceError: showType is not defined
+    at Object.exports.addShowType (/Users/agil/Documents/agil/binge-watchers-guide-server/service/recommendations.js:94:14)
+    at exports.addShowType (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/recommendations.js:106:28)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)
+    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)
+    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)
+    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)
+    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:284:7
+    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10) {
+  [stack]: 'ReferenceError: showType is not defined\n' +
+    '    at Object.exports.addShowType (/Users/agil/Documents/agil/binge-watchers-guide-server/service/recommendations.js:94:14)\n' +
+    '    at exports.addShowType (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/recommendations.js:106:28)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:137:13)\n' +
+    '    at Route.dispatch (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/route.js:112:3)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:281:22\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)\n' +
+    '    at Function.handle (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:174:3)\n' +
+    '    at router (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:47:12)\n' +
+    '    at Layer.handle [as handle_request] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/layer.js:95:5)\n' +
+    '    at trim_prefix (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:317:13)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:284:7\n' +
+    '    at Function.process_params (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:335:12)\n' +
+    '    at next (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/express/lib/router/index.js:275:10)',
+  [message]: 'showType is not defined'
+}
+2020-03-29T06:36:22.159Z : category service : createCategory: catch TypeError: Languages.ShowTypes is not a function
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:124:28)
+    at exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:102:20)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'TypeError: Languages.ShowTypes is not a function\n' +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:124:28)\n' +
+    '    at exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/controller/users.js:102:20)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'Languages.ShowTypes is not a function'
+}
+2020-03-29T06:36:46.727Z : category service : createCategory: catch MongooseError [CastError]: Cast to ObjectId failed for value "movie" at path "_id" for model "ShowTypes"
+    at new CastError (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11) {
+  stringValue: '"movie"',
+  kind: 'ObjectId',
+  value: 'movie',
+  path: '_id',
+  reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+      at new ObjectID (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/objectid.js:59:11)
+      at castObjectId (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schema/objectid.js:267:12)
+      at ObjectId.SchemaType.applySetters (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1010:12)
+      at ObjectId.SchemaType._castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1424:15)
+      at ObjectId.SchemaType.castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1414:15)
+      at ObjectId.SchemaType.castForQueryWrapper (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1393:15)
+      at cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast.js:315:32)
+      at model.Query.Query.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:4690:12)
+      at model.Query.Query._castConditions (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:1862:10)
+      at model.Query.<anonymous> (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:2117:8)
+      at model.Query._wrappedThunk [as _findOne] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+      at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/kareem/index.js:369:33
+      at processTicksAndRejections (internal/process/task_queues.js:79:11) {
+    [stack]: 'Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters\n' +
+      '    at new ObjectID (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/objectid.js:59:11)\n' +
+      '    at castObjectId (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast/objectid.js:25:12)\n' +
+      '    at ObjectId.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schema/objectid.js:267:12)\n' +
+      '    at ObjectId.SchemaType.applySetters (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1010:12)\n' +
+      '    at ObjectId.SchemaType._castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1424:15)\n' +
+      '    at ObjectId.SchemaType.castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1414:15)\n' +
+      '    at ObjectId.SchemaType.castForQueryWrapper (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1393:15)\n' +
+      '    at cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast.js:315:32)\n' +
+      '    at model.Query.Query.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:4690:12)\n' +
+      '    at model.Query.Query._castConditions (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:1862:10)\n' +
+      '    at model.Query.<anonymous> (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:2117:8)\n' +
+      '    at model.Query._wrappedThunk [as _findOne] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)\n' +
+      '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/kareem/index.js:369:33\n' +
+      '    at processTicksAndRejections (internal/process/task_queues.js:79:11)',
+    [message]: 'Argument passed in must be a single String of 12 bytes or a string of 24 hex characters'
+  },
+  [stack]: 'CastError: Cast to ObjectId failed for value "movie" at path "_id" for model "ShowTypes"\n' +
+    '    at new CastError (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/error/cast.js:39:11)\n' +
+    '    at ObjectId.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schema/objectid.js:269:11)\n' +
+    '    at ObjectId.SchemaType.applySetters (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1010:12)\n' +
+    '    at ObjectId.SchemaType._castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1424:15)\n' +
+    '    at ObjectId.SchemaType.castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1414:15)\n' +
+    '    at ObjectId.SchemaType.castForQueryWrapper (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1393:15)\n' +
+    '    at cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast.js:315:32)\n' +
+    '    at model.Query.Query.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:4690:12)\n' +
+    '    at model.Query.Query._castConditions (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:1862:10)\n' +
+    '    at model.Query.<anonymous> (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:2117:8)\n' +
+    '    at model.Query._wrappedThunk [as _findOne] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/kareem/index.js:369:33\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:79:11)',
+  message: 'Cast to ObjectId failed for value "movie" at path "_id" for model "ShowTypes"',
+  name: 'CastError',
+  model: Model { ShowTypes }
+}
+2020-03-29T06:47:00.109Z : category service : createCategory: catch TypeError: Cannot read property 'forEach' of undefined
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:126:23)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: "TypeError: Cannot read property 'forEach' of undefined\n" +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:126:23)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: "Cannot read property 'forEach' of undefined"
+}
+2020-03-29T06:47:14.963Z : category service : createCategory: catch ReferenceError: showTypes is not defined
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:137:19)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: showTypes is not defined\n' +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:137:19)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'showTypes is not defined'
+}
+2020-03-29T06:50:43.351Z : category service : createCategory: catch ReferenceError: createdBy is not defined
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:134:5)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: createdBy is not defined\n' +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:134:5)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'createdBy is not defined'
+}
+2020-03-29T06:51:33.587Z : category service : createCategory: catch ReferenceError: createdBy is not defined
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:135:5)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: createdBy is not defined\n' +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:135:5)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'createdBy is not defined'
+}
+2020-03-29T06:52:05.116Z : category service : createCategory: catch MongooseError [CastError]: Cast to ObjectId failed for value "32" at path "_id" for model "User"
+    at new CastError (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/error/cast.js:39:11)
+    at ObjectId.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schema/objectid.js:269:11)
+    at ObjectId.SchemaType.applySetters (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1010:12)
+    at ObjectId.SchemaType._castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1424:15)
+    at ObjectId.SchemaType.castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1414:15)
+    at ObjectId.SchemaType.castForQueryWrapper (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1393:15)
+    at cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast.js:315:32)
+    at model.Query.Query.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:4690:12)
+    at model.Query.Query._castConditions (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:1862:10)
+    at model.Query.<anonymous> (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:2117:8)
+    at model.Query._wrappedThunk [as _findOne] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/kareem/index.js:369:33
+    at processTicksAndRejections (internal/process/task_queues.js:79:11) {
+  stringValue: '"32"',
+  kind: 'ObjectId',
+  value: '32',
+  path: '_id',
+  reason: Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters
+      at new ObjectID (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/objectid.js:59:11)
+      at castObjectId (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast/objectid.js:25:12)
+      at ObjectId.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schema/objectid.js:267:12)
+      at ObjectId.SchemaType.applySetters (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1010:12)
+      at ObjectId.SchemaType._castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1424:15)
+      at ObjectId.SchemaType.castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1414:15)
+      at ObjectId.SchemaType.castForQueryWrapper (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1393:15)
+      at cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast.js:315:32)
+      at model.Query.Query.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:4690:12)
+      at model.Query.Query._castConditions (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:1862:10)
+      at model.Query.<anonymous> (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:2117:8)
+      at model.Query._wrappedThunk [as _findOne] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)
+      at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/kareem/index.js:369:33
+      at processTicksAndRejections (internal/process/task_queues.js:79:11) {
+    [stack]: 'Error: Argument passed in must be a single String of 12 bytes or a string of 24 hex characters\n' +
+      '    at new ObjectID (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/bson/lib/bson/objectid.js:59:11)\n' +
+      '    at castObjectId (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast/objectid.js:25:12)\n' +
+      '    at ObjectId.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schema/objectid.js:267:12)\n' +
+      '    at ObjectId.SchemaType.applySetters (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1010:12)\n' +
+      '    at ObjectId.SchemaType._castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1424:15)\n' +
+      '    at ObjectId.SchemaType.castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1414:15)\n' +
+      '    at ObjectId.SchemaType.castForQueryWrapper (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1393:15)\n' +
+      '    at cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast.js:315:32)\n' +
+      '    at model.Query.Query.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:4690:12)\n' +
+      '    at model.Query.Query._castConditions (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:1862:10)\n' +
+      '    at model.Query.<anonymous> (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:2117:8)\n' +
+      '    at model.Query._wrappedThunk [as _findOne] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)\n' +
+      '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/kareem/index.js:369:33\n' +
+      '    at processTicksAndRejections (internal/process/task_queues.js:79:11)',
+    [message]: 'Argument passed in must be a single String of 12 bytes or a string of 24 hex characters'
+  },
+  [stack]: 'CastError: Cast to ObjectId failed for value "32" at path "_id" for model "User"\n' +
+    '    at new CastError (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/error/cast.js:39:11)\n' +
+    '    at ObjectId.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schema/objectid.js:269:11)\n' +
+    '    at ObjectId.SchemaType.applySetters (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1010:12)\n' +
+    '    at ObjectId.SchemaType._castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1424:15)\n' +
+    '    at ObjectId.SchemaType.castForQuery (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1414:15)\n' +
+    '    at ObjectId.SchemaType.castForQueryWrapper (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/schematype.js:1393:15)\n' +
+    '    at cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/cast.js:315:32)\n' +
+    '    at model.Query.Query.cast (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:4690:12)\n' +
+    '    at model.Query.Query._castConditions (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:1862:10)\n' +
+    '    at model.Query.<anonymous> (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/query.js:2117:8)\n' +
+    '    at model.Query._wrappedThunk [as _findOne] (/Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/mongoose/lib/helpers/query/wrapThunk.js:16:8)\n' +
+    '    at /Users/agil/Documents/agil/binge-watchers-guide-server/node_modules/kareem/index.js:369:33\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:79:11)',
+  message: 'Cast to ObjectId failed for value "32" at path "_id" for model "User"',
+  name: 'CastError',
+  model: Model { User }
+}
+2020-03-29T06:52:33.015Z : category service : createCategory: catch ReferenceError: createdBy is not defined
+    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:135:5)
+    at processTicksAndRejections (internal/process/task_queues.js:97:5) {
+  [stack]: 'ReferenceError: createdBy is not defined\n' +
+    '    at Object.exports.addShow (/Users/agil/Documents/agil/binge-watchers-guide-server/service/users.js:135:5)\n' +
+    '    at processTicksAndRejections (internal/process/task_queues.js:97:5)',
+  [message]: 'createdBy is not defined'
+}

@@ -3,6 +3,7 @@ const { hashSync, compareSync } = require('bcryptjs');
 
 const { BCRYPT_SALT_ROUND } = require('../constants/app');
 const { User } = require('../model/users');
+const { Shows, Genres, ShowTypes, Languages } = require('../model/recommendations');
 const logger = require('../util/logger');
 const {generateToken} = require('../util/token');
 
@@ -153,4 +154,78 @@ exports.checkUsername = async (res,username) => {
       message: "Server encountered an error, Please try again after some time"
     });
   } 
+}
+
+exports.addShow = async (res,body) => {
+  try{
+    logger.debug("users service : addShow : start");
+
+    console.log("booo",body);
+    let user = await User.findById(body.createdBy);
+    if(!user){
+      res.status(400);
+      res.json({
+        code:"input_data_issue",
+        message: "Invalid user id"
+      });
+      return;
+    }
+
+    console.log("body",body);
+    let type;
+    let language;
+    let genre = true;
+    
+    type = await ShowTypes.findById(body.type);
+    language = await Languages.findById(body.language);
+    body.genres.forEach(async item => {
+      if(!await Genres.findById(item)){
+        genre = false;
+      }
+    });
+
+    console.log("showTypes",type);
+    console.log("language",language);
+
+    if(!genre || !type || !language){
+      res.status(400);
+      res.json({
+        code:"input_data_issue",
+        message: "Invalid genres or type or language"
+      });
+      return;
+    }
+
+    const category = new Shows(body);
+    let result = await category.save();
+    // logger.info("category service : createCategory: result %o",result);
+    res.status(200);
+    res.json(result);
+  }
+  catch(error){
+    logger.error("users service : addShow: catch %o",error);
+      res.status(500);
+      res.json({
+        code:"internal_error",
+        message: "Server encountered an error, Please try again after some time"
+      });
+  } 
+}
+
+exports.listRecommendations = async (res, filterObj, id) => {
+  try{
+    logger.debug("category service : listCategory : start");
+    let result = await Shows.find(filterObj);
+    logger.info("category service : listCategory: result %o",result);
+    res.status(200);
+    res.json(result);
+  }
+  catch(error){
+    logger.error("category service : listCategory: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
+  }
 }

@@ -7,6 +7,7 @@ let usersController = require('../controller/users');
 router.post('/', usersController.addUser);
 router.post('/auth', usersController.loginUser);
 router.get('/username/:username', usersController.checkUsername);
+router.post('/:userId/shows', usersController.addShow);
 // router.post('/:userId/shows/:showId/upvote', usersController.upvoteRecommendations);
 
 module.exports = router;

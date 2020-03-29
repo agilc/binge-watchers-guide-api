@@ -1,51 +1,14 @@
 'use strict';
 
-const { Recommendations } = require('../model/recommendations');
+const { ShowTypes, Languages, Genres } = require('../model/recommendations');
 const logger = require('../util/logger');
 
-exports.createRecommendations = async (res,body) => {
-  try{
-    logger.debug("category service : createCategory : start");
-      const category = new Recommendations(body);
-      let result = await category.save();
-      logger.info("category service : createCategory: result %o",result);
-      res.status(200);
-      res.json(result);
-  }
-  catch(error){
-    logger.error("category service : createCategory: catch %o",error);
-      res.status(500);
-      res.json({
-        code:"internal_error",
-        message: "Server encountered an error, Please try again after some time"
-      });
-  } 
-}
-
-exports.listRecommendations = async (res, filterObj, id) => {
-  try{
-    logger.debug("category service : listCategory : start");
-    let result = await Recommendations.find(filterObj);
-    logger.info("category service : listCategory: result %o",result);
-    res.status(200);
-    res.json(result);
-  }
-  catch(error){
-    logger.error("category service : listCategory: catch %o",error);
-    res.status(500);
-    res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
-    });
-  }
-}
-
 exports.editRecommendations = async (res, dataObj, id) => {
-  logger.debug("category service : editCategory : start");
+  logger.debug("recommendations service : editCategory : start");
   try{
     let result = await Recommendations.findByIdAndUpdate(id, dataObj);
     if(!result){
-      logger.error("category service : editCategory: file not found %o",result);
+      logger.error("recommendations service : editCategory: file not found %o",result);
       res.status(404);
       res.json({
         code:"not_found",
@@ -53,13 +16,13 @@ exports.editRecommendations = async (res, dataObj, id) => {
       });
     }
     else{
-      logger.info("category service : editCategory: result %o",result);
+      logger.info("recommendations service : editCategory: result %o",result);
       res.status(200);
       res.json(result);
     }
   }
   catch(error){
-    logger.error("category service : editCategory: catch %o",error);
+    logger.error("recommendations service : editCategory: catch %o",error);
       res.status(500);
       res.json({
         code:"internal_error",
@@ -69,11 +32,11 @@ exports.editRecommendations = async (res, dataObj, id) => {
 }
 
 exports.upvoteRecommendations = async (res, id) => {
-  logger.debug("category service : editCategory : start");
+  logger.debug("recommendations service : editCategory : start");
   try{
     let result = await Recommendations.findByIdAndUpdate({_id: id}, {$inc: { upvotes: 1} });
     if(!result){
-      logger.error("category service : editCategory: file not found %o",result);
+      logger.error("recommendations service : editCategory: file not found %o",result);
       res.status(404);
       res.json({
         code:"not_found",
@@ -81,13 +44,13 @@ exports.upvoteRecommendations = async (res, id) => {
       });
     }
     else{
-      logger.info("category service : editCategory: result %o",result);
+      logger.info("recommendations service : editCategory: result %o",result);
       res.status(200);
       res.json(result);
     }
   }
   catch(error){
-    logger.error("category service : editCategory: catch %o",error);
+    logger.error("recommendations service : editCategory: catch %o",error);
       res.status(500);
       res.json({
         code:"internal_error",
@@ -98,11 +61,11 @@ exports.upvoteRecommendations = async (res, id) => {
 
 
 exports.downvoteRecommendations = async (res, id) => {
-  logger.debug("category service : editCategory : start");
+  logger.debug("recommendations service : editCategory : start");
   try{
     let result = await Recommendations.findByIdAndUpdate({_id: id}, {$inc: { downvotes: 1} });
     if(!result){
-      logger.error("category service : editCategory: file not found %o",result);
+      logger.error("recommendations service : editCategory: file not found %o",result);
       res.status(404);
       res.json({
         code:"not_found",
@@ -110,13 +73,13 @@ exports.downvoteRecommendations = async (res, id) => {
       });
     }
     else{
-      logger.info("category service : editCategory: result %o",result);
+      logger.info("recommendations service : editCategory: result %o",result);
       res.status(200);
       res.json(result);
     }
   }
   catch(error){
-    logger.error("category service : editCategory: catch %o",error);
+    logger.error("recommendations service : editCategory: catch %o",error);
       res.status(500);
       res.json({
         code:"internal_error",
@@ -124,73 +87,57 @@ exports.downvoteRecommendations = async (res, id) => {
       });
   } 
 }
-// exports.getCategory = async (res, categoryId) => {
-//   try{
-//     logger.debug("category service : getCategory : start");
-//     let result = await Category.findById(categoryId);
-//     logger.debug("category service : getCategory : end");
-//     if(!result){
-//       logger.error("category service : getCategory: file not found %o",result);
-//       res.status(404);
-//       res.json({
-//         code:"not_found",
-//         message: "Resource not found"
-//       });
-//     }
-//     else{
-//       logger.info("category service : getCategory: result %o",result);
-//       res.status(200);
-//       res.json(result);
-//     }
-//   }
-//   catch(error){
-//     logger.error("category service : getCategory: catch %o",error);
-//     if(error.name === "CastError"){
-//       res.status(400);
-//       res.json({
-//         code:"input_data_issue",
-//         message: "Valid id is required"
-//       });
-//     }
-//     else{
-//       res.status(500);
-//       res.json({
-//         code:"internal_error",
-//         message: "Server encountered an error, Please try again after some time"
-//       });
-//     }
-//   }
-// }
 
-// exports.deleteCategory = async (res,categoryId) => {
-//   try{
-//     logger.debug("category service : deleteCategory : start");
-//     let result = await Category.findByIdAndRemove(categoryId);
-//     if(!result){
-//       logger.error("category service : deleteCategory: file not found %o",result);
-//       res.status(404);
-//       res.json({
-//         code:"not_found",
-//         message: "Resource not found"
-//       });
-//     }
-//     logger.info("category service : deleteCategory: result %o",result);
-//     res.status(200);
-//     res.json(result);
-//   }
-//   catch(error){
-//     logger.error("category service : deleteCategory: catch %o",error);
-//     if(error.name === "CastError"){
-//       res.status(400);
-//       res.json({
-//         code:"input_data_issue",
-//         message: "Valid id required"
-//       });
-//     }
-//     res.status(500);
-//     res.json({
-//       code:"internal_error",
-//       message: "Server encountered an error, Please try again after some time"
-//     });
-//   }
-// }
+exports.addShowType = async (res, body) => {
+  logger.debug("recommendations service : addShowType : start");
+  try{
+    let showType = new ShowTypes(body);
+    let result = await showType.save();
+    res.status(200);
+    res.json(result);
+  }
+  catch(error){
+    logger.error("recommendations service : addShowType: catch %o",error);
+      res.status(500);
+      res.json({
+        code:"internal_error",
+        message: "Server encountered an error, Please try again after some time"
+      });
+  } 
+}
+
+exports.addLanguages = async (res, body) => {
+  logger.debug("recommendations service : addLanguages : start");
+  try{
+    let lang = new Languages(body);
+    let result = await lang.save();
+    res.status(200);
+    res.json(result);
+  }
+  catch(error){
+    logger.error("recommendations service : addShowType: catch %o",error);
+      res.status(500);
+      res.json({
+        code:"internal_error",
+        message: "Server encountered an error, Please try again after some time"
+      });
+  } 
+}
+
+exports.addGenres = async (res, body) => {
+  logger.debug("recommendations service : addLanguages : start");
+  try{
+    let genre = new Genres(body);
+    let result = await genre.save();
+    res.status(200);
+    res.json(result);
+  }
+  catch(error){
+    logger.error("recommendations service : addShowType: catch %o",error);
+      res.status(500);
+      res.json({
+        code:"internal_error",
+        message: "Server encountered an error, Please try again after some time"
+      });
+  } 
+}
