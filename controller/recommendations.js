@@ -4,6 +4,31 @@ const Joi = require('@hapi/joi');
 const recommendationsService = require('../service/recommendations');
 const logger = require('../util/logger');
 
+exports.getShows = async (req, res) => {
+  try{
+    logger.debug("recommendations controller : getShows : start");
+    let { language, genre, type } = req.query;
+    filterObj = {};
+
+    language && (filterObj["language"] = language);
+    genre && (filterObj["genres"] = {genres: {$in: genre.split(',')}} );
+    type && (filterObj["type"] = type);
+    console.log("filterObj",filterObj);
+
+    logger.debug("category controller : getShows : Search Params %o", filterObj);
+    recommendationsService.getShows(res, filterObj);
+    logger.debug("category controller : getShows :end");
+  }
+  catch(error){
+    logger.error("category controller : getShows: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
+  }
+}
+
 exports.editRecommendations = async (req,res) => {
   logger.debug("recommendations controller : editCategory : start");
 

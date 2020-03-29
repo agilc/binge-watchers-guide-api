@@ -1,7 +1,29 @@
 'use strict';
 
-const { ShowTypes, Languages, Genres } = require('../model/recommendations');
+const { ShowTypes, Languages, Genres, Shows } = require('../model/recommendations');
 const logger = require('../util/logger');
+
+exports.getShows = async (res, filterObj) => {
+  try{
+    logger.debug("category service : listCategory : start");
+    let result = await Shows.find(filterObj);
+    logger.info("category service : listCategory: result %o",result);
+    res.status(200);
+    res.json({
+      success: true,
+      message: "Shows fetched successfully",
+      data: result
+    });
+  }
+  catch(error){
+    logger.error("category service : listCategory: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
+  }
+}
 
 exports.editRecommendations = async (res, dataObj, id) => {
   logger.debug("recommendations service : editCategory : start");

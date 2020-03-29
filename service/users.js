@@ -211,21 +211,3 @@ exports.addShow = async (res,body) => {
       });
   } 
 }
-
-exports.listRecommendations = async (res, filterObj, id) => {
-  try{
-    logger.debug("category service : listCategory : start");
-    let result = await Shows.find(filterObj);
-    logger.info("category service : listCategory: result %o",result);
-    res.status(200);
-    res.json(result);
-  }
-  catch(error){
-    logger.error("category service : listCategory: catch %o",error);
-    res.status(500);
-    res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
-    });
-  }
-}

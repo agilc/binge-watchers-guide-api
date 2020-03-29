@@ -58,31 +58,6 @@ exports.checkUsername = async (req,res) => {
   }
 }
 
-exports.listRecommendations = async (req,res) => {
-  try{
-    logger.debug("recommendations controller : listCategory : start");
-    let { name, genre, type } = req.query;
-    filterObj = {};
-
-    name && (filterObj["name"] = name);
-    genre && (filterObj["genre"] = genre);
-    type && (filterObj["type"] = type);
-    console.log("filterObj",filterObj);
-
-    logger.debug("category controller : listCategory : Search Params %o", filterObj);
-    recommendationsService.listRecommendations(res, filterObj);
-    logger.debug("category controller : listCategory :end");
-  }
-  catch(error){
-    logger.error("category controller : listCategory: catch %o",error);
-    res.status(500);
-    res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
-    });
-  }
-}
-
 
 exports.addShow = async (req,res) => {
   logger.debug("recommendations controller : listRecommendations : start");

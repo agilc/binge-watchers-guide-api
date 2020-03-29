@@ -5,7 +5,7 @@ let recommendationsController = require('../controller/recommendations');
 
 /* GET users listing. */
 // router.post('/', recommendationsController.createRecommendations);
-// router.get('/', recommendationsController.listRecommendations);
+router.get('/', recommendationsController.getShows);
 // router.put('/', recommendationsController.editRecommendations);
 router.post('/upvote', recommendationsController.upvoteRecommendations);
 router.post('/downvote', recommendationsController.downvoteRecommendations);
