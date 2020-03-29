@@ -122,7 +122,7 @@ exports.checkUsername = async (res,username) => {
 
     if(user){
       logger.error("users service : loginUSer: invalid user name %o",user);
-      res.status(401);
+      res.status(200);
       res.json({
         success: false,
         code:"exists",
