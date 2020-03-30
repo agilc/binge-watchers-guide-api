@@ -225,7 +225,7 @@ exports.upvoteShow = async (res, body) => {
   logger.debug("users service : upvoteShow : start");
   try{
     let show = await Shows.findById(body.showId);
-    let haveUpvoted, haveDownvoted;
+    let haveUpvoted, haveDownvoted, message;
 
     if(!show){
       logger.error("users service : upvoteShow: file not found %o",show);
@@ -241,6 +241,7 @@ exports.upvoteShow = async (res, body) => {
     if(body.isUpvote){
       haveDownvoted = false;
       haveUpvoted = true;
+      message = "Show upvoted successfully";
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
@@ -255,6 +256,7 @@ exports.upvoteShow = async (res, body) => {
     else{
       haveDownvoted = false;
       haveUpvoted = false;
+      message = "Removed your upvote";
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
@@ -272,7 +274,7 @@ exports.upvoteShow = async (res, body) => {
     res.status(200);
     res.json({
       success: true,
-      message: "Show upvoted successfully",
+      message: message,
       data: {
         show: showInfo
       }
@@ -292,7 +294,7 @@ exports.downvoteShow = async (res, body) => {
   logger.debug("users service : downvoteShow : start");
   try{
     let show = await Shows.findById(body.showId);
-    let haveUpvoted, haveDownvoted;
+    let haveUpvoted, haveDownvoted, message;
 
     if(!show){
       logger.error("users service : downvoteShow: file not found %o",show);
@@ -308,6 +310,7 @@ exports.downvoteShow = async (res, body) => {
     if(body.isDownvote){
       haveDownvoted = true;
       haveUpvoted = false;
+      message = "Show downvoted successfully";
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
@@ -322,6 +325,7 @@ exports.downvoteShow = async (res, body) => {
     else{
       haveDownvoted = false;
       haveUpvoted = false;
+      message = "Removed your downvote"
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
@@ -341,7 +345,7 @@ exports.downvoteShow = async (res, body) => {
     res.status(200);
     res.json({
       success: true,
-      message: "Show downvoted successfully",
+      message: message,
       data: {
         show: showInfo
       }
