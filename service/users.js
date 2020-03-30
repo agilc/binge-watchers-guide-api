@@ -202,7 +202,7 @@ exports.addShow = async (res,body) => {
     result.downvotes = 0;
     console.log("res",result);
     // logger.info("category service : createCategory: result %o",result);
-    res.status(200);
+    res.status(201);
     res.json({
       success: true,
       message: "Show added successfully",
