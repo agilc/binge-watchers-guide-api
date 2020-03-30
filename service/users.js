@@ -202,7 +202,7 @@ exports.addShow = async (res,body) => {
     result.downvotes = 0;
     console.log("res",result);
     // logger.info("category service : createCategory: result %o",result);
-    res.status(200);
+    res.status(201);
     res.json({
       success: true,
       message: "Show added successfully",
@@ -237,18 +237,31 @@ exports.upvoteShow = async (res, body) => {
       return;
     }
 
-    show = await Shows.findOneAndUpdate(
-      { _id: body.showId },
-      {
-          $addToSet: {
-              upvotes: body.userId
-          },
-          $pull: { downvotes: body.userId } 
-      },
-      { new: true }
-      ).lean();
+    if(body.isUpvote){
+      show = await Shows.findOneAndUpdate(
+        { _id: body.showId },
+        {
+            $addToSet: {
+                upvotes: body.userId
+            },
+            $pull: { downvotes: body.userId } 
+        },
+        { new: true }
+        ).lean();
+    }
+    else{
+      show = await Shows.findOneAndUpdate(
+        { _id: body.showId },
+        {
+            $pull: {
+                upvotes: body.userId
+            }
+        },
+        { new: true }
+        ).lean();
+    }
 
-      const showInfo = {...show, upvotes: show.upvotes.length, downvotes: show.downvotes.length}
+    const showInfo = {...show, upvotes: show.upvotes.length, downvotes: show.downvotes.length}
 
     logger.info("users service : upvoteShow: result %o",show);
     res.status(200);
@@ -262,6 +275,68 @@ exports.upvoteShow = async (res, body) => {
   }
   catch(error){
     logger.error("recommendations service : editCategory: catch %o",error);
+      res.status(500);
+      res.json({
+        code:"internal_error",
+        message: "Server encountered an error, Please try again after some time"
+      });
+  } 
+}
+
+exports.downvoteShow = async (res, body) => {
+  logger.debug("users service : downvoteShow : start");
+  try{
+    let show = await Shows.findById(body.showId);
+
+    if(!show){
+      logger.error("users service : downvoteShow: file not found %o",show);
+      res.status(404);
+      res.json({
+        success: false,
+        message: "Invalid show",
+        data: {}
+      });
+      return;
+    }
+
+    if(body.isDownvote){
+      show = await Shows.findOneAndUpdate(
+        { _id: body.showId },
+        {
+            $addToSet: {
+              downvotes: body.userId
+            },
+            $pull: { upvotes: body.userId } 
+        },
+        { new: true }
+        ).lean();
+    }
+    else{
+      show = await Shows.findOneAndUpdate(
+        { _id: body.showId },
+        {
+            $pull: {
+              downvotes: body.userId
+            }
+        },
+        { new: true }
+        ).lean();
+    }
+
+    const showInfo = {...show, upvotes: show.upvotes.length, downvotes: show.downvotes.length}
+
+    logger.info("users service : downvoteShow: result %o",show);
+    res.status(200);
+    res.json({
+      success: true,
+      message: "Fetched shows successfully",
+      data: {
+        show: showInfo
+      }
+    });
+  }
+  catch(error){
+    logger.error("users service : downvoteShow: catch %o",error);
       res.status(500);
       res.json({
         code:"internal_error",
