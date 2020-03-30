@@ -220,3 +220,49 @@ exports.addShow = async (res,body) => {
       });
   } 
 }
+
+exports.upvoteShow = async (res, body) => {
+  logger.debug("users service : upvoteShow : start");
+  try{
+    let show = await Shows.findById(body.showId);
+    if(!show){
+      logger.error("users service : upvoteShow: file not found %o",show);
+      res.status(404);
+      res.json({
+        success: false,
+        message: "Invalid show",
+        data: {}
+      });
+      return;
+    }
+
+    show = await Shows.findOneAndUpdate(
+      { _id: body.showId },
+      {
+          $addToSet: {
+              upvotes: body.userId
+          },
+          $pull: { downvotes: body.userId } 
+      },
+      { new: true }
+      ).lean();
+
+    logger.info("users service : upvoteShow: result %o",show);
+    res.status(200);
+    res.json({
+      success: true,
+      message: message,
+      data: {
+        show: show
+      }
+    });
+  }
+  catch(error){
+    logger.error("recommendations service : editCategory: catch %o",error);
+      res.status(500);
+      res.json({
+        code:"internal_error",
+        message: "Server encountered an error, Please try again after some time"
+      });
+  } 
+}

@@ -85,25 +85,6 @@ let editInputValidation = async (body) =>{
   }
 }
 
-exports.upvoteRecommendations = async (req,res) => {
-  logger.debug("recommendations controller : editCategory : start");
-
-  try{
-    let body = req.body;
-    recommendationsService.upvoteRecommendations(res,body.id);
-
-    logger.debug("recommendations controller : editCategory :end");
-  }
-  catch(error){
-    logger.error("recommendations controller : editCategory: catch %o",error);
-    res.status(500);
-    res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
-    });
-  }
-}
-
 exports.downvoteRecommendations = async (req,res) => {
   logger.debug("recommendations controller : editCategory : start");
 

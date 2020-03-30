@@ -7,7 +7,7 @@ let recommendationsController = require('../controller/recommendations');
 // router.post('/', recommendationsController.createRecommendations);
 router.get('/', recommendationsController.getShows);
 // router.put('/', recommendationsController.editRecommendations);
-router.post('/upvote', recommendationsController.upvoteRecommendations);
+// router.post('/upvote', recommendationsController.upvoteRecommendations);
 router.post('/downvote', recommendationsController.downvoteRecommendations);
 router.post('/showtypes', recommendationsController.addShowType);
 router.post('/languages', recommendationsController.addLanguages);

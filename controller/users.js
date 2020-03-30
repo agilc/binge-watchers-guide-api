@@ -111,3 +111,25 @@ let createInputValidation = async (body) =>{
     return false;
   }
 }
+
+exports.upvoteShow = async (req,res) => {
+  logger.debug("users controller : upvoteShow : start");
+
+  try{
+    let { userId, showId } = req.params;
+    let body = req.body;
+    body['userId'] = userId;
+    body['showId'] = showId;
+    usersService.upvoteShow(res,body);
+
+    logger.debug("users controller : upvoteShow :end");
+  }
+  catch(error){
+    logger.error("users controller : upvoteShow: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
+  }
+}
