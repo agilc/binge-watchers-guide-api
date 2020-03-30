@@ -91,9 +91,9 @@ exports.addShow = async (req,res) => {
 let createInputValidation = async (body) =>{
   const schema = Joi.object({
     name: Joi.string().required(),
-    description: Joi.string(),
+    description: Joi.string().allow(""),
     type: Joi.string().required(),
-    url: Joi.string(),
+    url: Joi.string().allow(""),
     language: Joi.string().required(),
     genres: Joi.array().required()
   });
