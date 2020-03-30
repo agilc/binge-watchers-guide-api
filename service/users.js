@@ -225,7 +225,7 @@ exports.upvoteShow = async (res, body) => {
   logger.debug("users service : upvoteShow : start");
   try{
     let show = await Shows.findById(body.showId);
-    let isUpvoted, isDownvoted;
+    let haveUpvoted, haveDownvoted;
 
     if(!show){
       logger.error("users service : upvoteShow: file not found %o",show);
@@ -239,8 +239,8 @@ exports.upvoteShow = async (res, body) => {
     }
 
     if(body.isUpvote){
-      isDownvoted = false;
-      isUpvoted = true;
+      haveDownvoted = false;
+      haveUpvoted = true;
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
@@ -253,8 +253,8 @@ exports.upvoteShow = async (res, body) => {
         ).lean();
     }
     else{
-      isDownvoted = false;
-      isUpvoted = false;
+      haveDownvoted = false;
+      haveUpvoted = false;
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
@@ -266,7 +266,7 @@ exports.upvoteShow = async (res, body) => {
         ).lean();
     }
 
-    const showInfo = {...show, upvotes: show.upvotes.length, downvotes: show.downvotes.length, isUpvoted: isUpvoted, isDownvoted: isDownvoted}
+    const showInfo = {...show, upvotes: show.upvotes.length, downvotes: show.downvotes.length, haveUpvoted: haveUpvoted, haveDownvoted: haveDownvoted}
 
     logger.info("users service : upvoteShow: result %o",show);
     res.status(200);
@@ -292,7 +292,7 @@ exports.downvoteShow = async (res, body) => {
   logger.debug("users service : downvoteShow : start");
   try{
     let show = await Shows.findById(body.showId);
-    let isUpvoted, isDownvoted;
+    let haveUpvoted, haveDownvoted;
 
     if(!show){
       logger.error("users service : downvoteShow: file not found %o",show);
@@ -306,8 +306,8 @@ exports.downvoteShow = async (res, body) => {
     }
 
     if(body.isDownvote){
-      isDownvoted = true;
-      isUpvoted = false;
+      haveDownvoted = true;
+      haveUpvoted = false;
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
@@ -320,8 +320,8 @@ exports.downvoteShow = async (res, body) => {
         ).lean();
     }
     else{
-      isDownvoted = false;
-      isUpvoted = false;
+      haveDownvoted = false;
+      haveUpvoted = false;
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
@@ -333,7 +333,7 @@ exports.downvoteShow = async (res, body) => {
         ).lean();
     }
 
-    const showInfo = {...show, upvotes: show.upvotes.length, downvotes: show.downvotes.length, isUpvoted: isUpvoted, isDownvoted: isDownvoted}
+    const showInfo = {...show, upvotes: show.upvotes.length, downvotes: show.downvotes.length, haveUpvoted: haveUpvoted, haveDownvoted: haveDownvoted}
 
     { }
 
