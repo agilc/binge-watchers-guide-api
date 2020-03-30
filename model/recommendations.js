@@ -19,17 +19,23 @@ const Shows = mongoose.model('Shows', new mongoose.Schema({
   ));
 
   const ShowTypes = mongoose.model('ShowTypes', new mongoose.Schema({
-    name: { type: String, required: true }},
+      name: { type: String, required: true },
+      order: {type: Number, required: true }
+    },
     schemaOptions
   ));
 
   const Genres = mongoose.model('Genres', new mongoose.Schema({
-    name: { type: String, required: true }},
+      name: { type: String, required: true },
+      order: {type: Number, required: true }
+    },
     schemaOptions
     ));
 
   const Languages = mongoose.model('Languages', new mongoose.Schema({
-    name: { type: String, required: true }},
+      name: { type: String, required: true },
+      order: {type: Number, required: true }
+    },
     schemaOptions
   ));
 
