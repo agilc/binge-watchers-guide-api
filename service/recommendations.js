@@ -6,7 +6,7 @@ const logger = require('../util/logger');
 exports.getShows = async (res, filterObj, user_id) => {
   try{
     logger.debug("category service : listCategory : start");
-    let result = await Shows.find(filterObj);
+    let result = await Shows.find(filterObj).sort({created_at: -1});
     // logger.info("category service : listCategory: result %o",result);
 
     // let newResult = result.map(item => {
@@ -25,7 +25,9 @@ exports.getShows = async (res, filterObj, user_id) => {
         genres: item.genres,
         upvotes: item.upvotes.length, 
         downvotes: item.downvotes.length,
-        createdBy: item.createdBy
+        created_by: item.created_by,
+        created_at: item.created_at,
+        updated_at: item.updated_at
       };
 
       if(user_id){
