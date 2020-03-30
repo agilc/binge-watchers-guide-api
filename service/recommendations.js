@@ -36,7 +36,7 @@ exports.getShows = async (res, filterObj, user_id) => {
       newResult.push(updatedValue);
     })
 
-    console.log("newResult",newResult)
+    // console.log("newResult",newResult)
 
     res.status(200);
     res.json({
