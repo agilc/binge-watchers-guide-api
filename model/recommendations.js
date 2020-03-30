@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const schemaOptions = {
-  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' },
+  timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 };
 
 const Shows = mongoose.model('Shows', new mongoose.Schema({
