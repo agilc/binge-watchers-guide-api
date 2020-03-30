@@ -225,6 +225,7 @@ exports.upvoteShow = async (res, body) => {
   logger.debug("users service : upvoteShow : start");
   try{
     let show = await Shows.findById(body.showId);
+
     if(!show){
       logger.error("users service : upvoteShow: file not found %o",show);
       res.status(404);
@@ -247,13 +248,15 @@ exports.upvoteShow = async (res, body) => {
       { new: true }
       ).lean();
 
+      const showInfo = {...show, upvotes: show.upvotes.length, downvotes: show.downvotes.length}
+
     logger.info("users service : upvoteShow: result %o",show);
     res.status(200);
     res.json({
       success: true,
-      message: message,
+      message: "Fetched shows successfully",
       data: {
-        show: show
+        show: showInfo
       }
     });
   }

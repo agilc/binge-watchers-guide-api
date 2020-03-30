@@ -8,7 +8,8 @@ rsync_exclude.txt
 
 # NODE GITIGNORE
 # Logs
-logs
+logs/*
+/logs/*
 /api-docs/
 *.log
 npm-debug.log*

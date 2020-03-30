@@ -6,8 +6,8 @@ const Shows = mongoose.model('Shows', new mongoose.Schema({
     language: { type: String },
     type: { type: String },
     genres: [String],
-    upvotes: [Number],
-    downvotes: [Number],
+    upvotes: [String],
+    downvotes: [String],
     description: { type: String },
     createdBy: { type: String }
   }));
