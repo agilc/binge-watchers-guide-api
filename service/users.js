@@ -272,7 +272,7 @@ exports.upvoteShow = async (res, body) => {
     res.status(200);
     res.json({
       success: true,
-      message: "Fetched shows successfully",
+      message: "Show upvoted successfully",
       data: {
         show: showInfo
       }
@@ -341,7 +341,7 @@ exports.downvoteShow = async (res, body) => {
     res.status(200);
     res.json({
       success: true,
-      message: "Fetched shows successfully",
+      message: "Show downvoted successfully",
       data: {
         show: showInfo
       }
