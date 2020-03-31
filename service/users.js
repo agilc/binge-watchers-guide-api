@@ -384,7 +384,7 @@ exports.deleteShow = async (res, body) => {
       res.status(200);
       res.json({
         success: true,
-        message: "message",
+        message: "Show deleted successfully",
         data: {
           show: show
         }
