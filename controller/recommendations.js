@@ -7,12 +7,13 @@ const logger = require('../util/logger');
 exports.getShows = async (req, res) => {
   try{
     logger.debug("recommendations controller : getShows : start");
-    let { languages, genres, types, user_id, sort, order } = req.query;
+    let { languages, genres, types, user_id, sort, order, q } = req.query;
     filterObj = { "is_active": true };
 
     languages && (filterObj["language"] = {$in: languages.split(',')});
     genres && (filterObj["genres"] = { $in: genres.split(',')} );
     types && (filterObj["type"] = {$in: types.split(',')});
+    q && (filterObj["name"] = ({ $regex: new RegExp(q, 'i')}));
 
     console.log("filterObj",filterObj);
 
