@@ -9,20 +9,25 @@ const { MONGODB_URL } = require('./constants/app');
 var indexRouter = require('./routes/index');
 const recommendationsRouter = require('./routes/recommendations');
 const usersRouter = require('./routes/users');
+const adminRouter = require('./routes/admin');
 
 let app = express();
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Authorization, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "*");
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Authorization, Content-Type, Accept'
+  );
+  res.header('Access-Control-Allow-Methods', '*');
   next();
 });
 
 // Connection to mongoDB
-mongoose.connect(MONGODB_URL, { useNewUrlParser: true })
-    .then(()=> console.log("Connected to MongoDB"))
-    .catch(error => console.error("Could not connect to mongoDB",error));
+mongoose
+  .connect(MONGODB_URL, { useNewUrlParser: true })
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(error => console.error('Could not connect to mongoDB', error));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -35,6 +40,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/admin', adminRouter);
 app.use('/users', usersRouter);
 app.use('/shows', recommendationsRouter);
 
