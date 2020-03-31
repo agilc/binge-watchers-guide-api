@@ -13,7 +13,8 @@ const Shows = mongoose.model('Shows', new mongoose.Schema({
     upvotes: [String],
     downvotes: [String],
     description: { type: String },
-    created_by: { type: String }
+    created_by: { type: String },
+    is_active: { type: Boolean, default: true }
   },
   schemaOptions
   ));

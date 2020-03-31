@@ -34,6 +34,7 @@ exports.getShows = async (res, filterObj, user_id, sort, order) => {
                 "created_by": 1,
                 "created_at": 1,
                 "updated_at": 1,
+                "is_active": 1,
                 "length": { "$size": "$"+sort }
             }},
             { "$match": filterObj },
@@ -65,7 +66,8 @@ exports.getShows = async (res, filterObj, user_id, sort, order) => {
         downvotes: item.downvotes.length,
         created_by: item.created_by,
         created_at: item.created_at,
-        updated_at: item.updated_at
+        updated_at: item.updated_at,
+        is_active: item.is_active
       };
 
       if(user_id){

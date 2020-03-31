@@ -73,7 +73,7 @@ exports.addShow = async (req,res) => {
     }
     else{
       let { userId } = req.params;
-      body['createdBy'] = userId;
+      body['created_by'] = userId;
       usersService.addShow(res,body);
     }
     logger.debug("recommendations controller : listRecommendations :end");
@@ -143,6 +143,28 @@ exports.downvoteShow = async (req,res) => {
     body['userId'] = userId;
     body['showId'] = showId;
     usersService.downvoteShow(res,body);
+
+    logger.debug("users controller : upvoteShow :end");
+  }
+  catch(error){
+    logger.error("users controller : upvoteShow: catch %o",error);
+    res.status(500);
+    res.json({
+      code:"internal_error",
+      message: "Server encountered an error, Please try again after some time"
+    });
+  }
+}
+
+exports.deleteShow = async (req,res) => {
+  logger.debug("users controller : upvoteShow : start");
+
+  try{
+    let { userId, showId } = req.params;
+    let body = req.body;
+    body['userId'] = userId;
+    body['showId'] = showId;
+    usersService.deleteShow(res,body);
 
     logger.debug("users controller : upvoteShow :end");
   }

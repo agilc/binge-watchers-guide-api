@@ -8,7 +8,7 @@ exports.getShows = async (req, res) => {
   try{
     logger.debug("recommendations controller : getShows : start");
     let { languages, genres, types, user_id, sort, order } = req.query;
-    filterObj = {};
+    filterObj = { "is_active": true };
 
     languages && (filterObj["language"] = {$in: languages.split(',')});
     genres && (filterObj["genres"] = { $in: genres.split(',')} );

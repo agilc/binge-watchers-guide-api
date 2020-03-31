@@ -161,7 +161,7 @@ exports.addShow = async (res,body) => {
     logger.debug("users service : addShow : start");
 
     console.log("booo",body);
-    let user = await User.findById(body.createdBy);
+    let user = await User.findById(body.created_by);
     if(!user){
       res.status(400);
       res.json({
@@ -350,6 +350,47 @@ exports.downvoteShow = async (res, body) => {
         show: showInfo
       }
     });
+  }
+  catch(error){
+    logger.error("users service : downvoteShow: catch %o",error);
+      res.status(500);
+      res.json({
+        code:"internal_error",
+        message: "Server encountered an error, Please try again after some time"
+      });
+  } 
+}
+
+exports.deleteShow = async (res, body) => {
+  logger.debug("users service : deleteShow : start");
+  try{
+    let show = await Shows.findOne({_id: body.showId});
+    console.log("creaa",show.created_by);
+    console.log("body.userId",body.userId);
+
+    if(show.created_by != body.userId){
+      res.status(403);
+      res.json({
+        success: false,
+        message: "You don't have permission to delete this show",
+        data: {
+          show: show
+        }
+      });
+    }
+    else{
+      show.is_active = false;
+      show = await show.save();
+      res.status(200);
+      res.json({
+        success: true,
+        message: "message",
+        data: {
+          show: show
+        }
+      });
+    }
+    logger.info("users service : downvoteShow: result %o",show);
   }
   catch(error){
     logger.error("users service : downvoteShow: catch %o",error);
