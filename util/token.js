@@ -7,7 +7,7 @@ exports.generateToken = (id) => {
     jwt.sign(
       { id },
       jwtSecret,
-      { expiresIn: '365 days' },
+      { expiresIn: '365d' },
       (err, token) => {
         if (err) {
           return reject(err);
