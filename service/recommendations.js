@@ -3,10 +3,48 @@
 const { ShowTypes, Languages, Genres, Shows } = require('../model/recommendations');
 const logger = require('../util/logger');
 
-exports.getShows = async (res, filterObj, user_id) => {
+exports.getShows = async (res, filterObj, user_id, sort, order) => {
   try{
     logger.debug("category service : listCategory : start");
-    let result = await Shows.find(filterObj).sort({created_at: -1});
+    if(!sort )
+      sort = "created_at";
+    else if(sort === "popularity")
+      sort = "upvotes"
+
+    if(order === "asc")
+      order = 1;
+    else  
+      order = -1;
+    
+    let result;
+    if(sort === "created_at")
+      result = await Shows.find(filterObj).sort({"created_at": order });
+    else
+      await Shows.aggregate(
+        [
+            { "$project": {
+                "_id": 1,
+                "name": 1,
+                "type": 1,
+                "url": 1,
+                "language": 1,
+                "genres": 1,
+                "upvotes": 1,
+                "downvotes": 1,
+                "created_by": 1,
+                "created_at": 1,
+                "updated_at": 1,
+                "length": { "$size": "$"+sort }
+            }},
+            { "$match": filterObj },
+            { "$sort": { "length": order } },
+        ],
+        function(err,results) {
+            result = results;
+            console.log("results", result);
+        }
+      )
+
     // logger.info("category service : listCategory: result %o",result);
 
     // let newResult = result.map(item => {
