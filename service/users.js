@@ -3,195 +3,199 @@ const { hashSync, compareSync } = require('bcryptjs');
 
 const { BCRYPT_SALT_ROUND } = require('../constants/app');
 const { User } = require('../model/users');
-const { Shows, Genres, ShowTypes, Languages } = require('../model/recommendations');
+const {
+  Shows,
+  Genres,
+  ShowTypes,
+  Languages,
+} = require('../model/recommendations');
 const logger = require('../util/logger');
-const {generateToken} = require('../util/token');
+const { generateToken } = require('../util/token');
 
-exports.addUsers = async (res,body) => {
-  try{
-    logger.debug("users service : addUsers : start");
+exports.addUsers = async (res, body) => {
+  try {
+    logger.debug('users service : addUsers : start');
     let { username, password } = body;
-    let user = await User.findOne({username: username});
+    let user = await User.findOne({ username: username });
 
-    if(user){
-      logger.error("users service : addUsers: duplicate user %o",user);
+    if (user) {
+      logger.error('users service : addUsers: duplicate user %o', user);
       res.status(409);
       res.json({
         status: false,
-        code:"conflict",
-        message: "This username already exists.",
+        code: 'conflict',
+        message: 'This username already exists.',
         data: {
-          username
-        }
+          username,
+        },
       });
       return;
     }
 
-    user = new User({username: username, password: hashSync(password, BCRYPT_SALT_ROUND ) });
+    user = new User({
+      username: username,
+      password: hashSync(password, BCRYPT_SALT_ROUND),
+    });
     let result = (await user.save()).toJSON();
 
-    const {password: passwordHash, __v, ...userInfo} = result
-    userInfo.token = await generateToken(result._id)
+    const { password: passwordHash, __v, ...userInfo } = result;
+    userInfo.token = await generateToken(result._id);
 
-
-    logger.info("users service : addUsers: result %o",result);
+    logger.info('users service : addUsers: result %o', result);
     res.status(201);
-    res.json({ 
+    res.json({
       status: true,
-      code: "ok",
-      message: "Registered successfully.",
-      data: { user: userInfo }
+      code: 'ok',
+      message: 'Registered successfully.',
+      data: { user: userInfo },
     });
-  }
-  catch(error){
-    logger.error("users service : addUsers: catch %o",error);
+  } catch (error) {
+    logger.error('users service : addUsers: catch %o', error);
     res.status(500);
     res.json({
       success: false,
-      code: "internal_error",
-      message: "Server encountered an error, Please try again after some time",
+      code: 'internal_error',
+      message: 'Server encountered an error, Please try again after some time',
       data: {
-        error: error.toString()
-      }
+        error: error.toString(),
+      },
     });
-  } 
-}
+  }
+};
 
-exports.loginUser = async (res,body) => {
-  try{
-    logger.debug("users service : loginUSer : start");
+exports.loginUser = async (res, body) => {
+  try {
+    logger.debug('users service : loginUSer : start');
     let { username, password } = body;
-    let user = await User.findOne({username: username}).lean();
+    let user = await User.findOne({ username: username }).lean();
 
-    if(!user){
-      logger.error("users service : loginUSer: invalid user name %o",user);
+    if (!user) {
+      logger.error('users service : loginUSer: invalid user name %o', user);
       res.status(401);
       res.json({
         success: false,
-        code:"unauthorized",
-        message: "Invalid username or password",
+        code: 'unauthorized',
+        message: 'Invalid username or password',
         data: {
-          username
-        }
+          username,
+        },
       });
       return;
     }
 
     const isAuthenticated = compareSync(password, user.password);
 
-    if(!isAuthenticated){
-      logger.error("users service : loginUSer: invalid password %o",user);
+    if (!isAuthenticated) {
+      logger.error('users service : loginUSer: invalid password %o', user);
       res.status(401);
       res.json({
         success: false,
-        code:"unauthorized",
-        message: "Invalid username or password",
+        code: 'unauthorized',
+        message: 'Invalid username or password',
         data: {
-          username
-        }
+          username,
+        },
       });
       return;
     }
 
-    const {password: passwordHash, __v, ...userInfo} = user
+    const { password: passwordHash, __v, ...userInfo } = user;
 
-    userInfo.token = await generateToken(user._id)
+    userInfo.token = await generateToken(user._id);
 
-    logger.info("users service : loginUSer: result %o",user);
+    logger.info('users service : loginUSer: result %o', user);
     res.status(200);
     res.json({
       status: true,
-      code: "ok",
-      message: "Logged in successfully.",
-      data: { user: userInfo }
+      code: 'ok',
+      message: 'Logged in successfully.',
+      data: { user: userInfo },
     });
-  }
-  catch(error){
-    logger.error("users service : loginUSer: catch %o",error);
+  } catch (error) {
+    logger.error('users service : loginUSer: catch %o', error);
     res.status(500);
     res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
+      code: 'internal_error',
+      message: 'Server encountered an error, Please try again after some time',
     });
-  } 
-}
+  }
+};
 
-exports.checkUsername = async (res,username) => {
-  try{
-    logger.debug("users service : loginUSer : start");
-    let user = await User.findOne({username: username});
+exports.checkUsername = async (res, username) => {
+  try {
+    logger.debug('users service : loginUSer : start');
+    let user = await User.findOne({ username: username });
 
-    if(user){
-      logger.error("users service : loginUSer: invalid user name %o",user);
+    if (user) {
+      logger.error('users service : loginUSer: invalid user name %o', user);
       res.status(200);
       res.json({
         success: false,
-        code:"exists",
-        message: "Username already exists.",
+        code: 'exists',
+        message: 'Username already exists.',
         data: {
-          username
-        }
+          username,
+        },
       });
       return;
     }
 
-    logger.info("users service : loginUSer: result %o",user);
+    logger.info('users service : loginUSer: result %o', user);
     res.status(200);
     res.json({
       success: true,
-      code:"ok",
+      code: 'ok',
       message: "Username doesn't exists.",
       data: {
-        username
-      }
+        username,
+      },
     });
-  }
-  catch(error){
-    logger.error("users service : loginUSer: catch %o",error);
+  } catch (error) {
+    logger.error('users service : loginUSer: catch %o', error);
     res.status(500);
     res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
+      code: 'internal_error',
+      message: 'Server encountered an error, Please try again after some time',
     });
-  } 
-}
+  }
+};
 
-exports.addShow = async (res,body) => {
-  try{
-    logger.debug("users service : addShow : start");
+exports.addShow = async (res, body) => {
+  try {
+    logger.debug('users service : addShow : start');
 
-    console.log("booo",body);
+    console.log('booo', body);
     let user = await User.findById(body.created_by);
-    if(!user){
+    if (!user) {
       res.status(400);
       res.json({
-        code:"input_data_issue",
-        message: "Invalid user id"
+        code: 'input_data_issue',
+        message: 'Invalid user id',
       });
       return;
     }
 
-    console.log("body",body);
+    console.log('body', body);
     let type;
     let language;
     let genre = true;
-    
+
     type = await ShowTypes.findById(body.type);
     language = await Languages.findById(body.language);
     body.genres.forEach(async item => {
-      if(!await Genres.findById(item)){
+      if (!(await Genres.findById(item))) {
         genre = false;
       }
     });
 
-    console.log("showTypes",type);
-    console.log("language",language);
+    console.log('showTypes', type);
+    console.log('language', language);
 
-    if(!genre || !type || !language){
+    if (!genre || !type || !language) {
       res.status(400);
       res.json({
-        code:"input_data_issue",
-        message: "Invalid genres or type or language"
+        code: 'input_data_issue',
+        message: 'Invalid genres or type or language',
       });
       return;
     }
@@ -200,204 +204,210 @@ exports.addShow = async (res,body) => {
     let result = (await show.save()).toObject();
     result.upvotes = 0;
     result.downvotes = 0;
-    console.log("res",result);
+    console.log('res', result);
     // logger.info("category service : createCategory: result %o",result);
     res.status(201);
     res.json({
       success: true,
-      message: "Show added successfully",
+      message: 'Show added successfully',
       data: {
-        show: result
-      }
+        show: result,
+      },
+    });
+  } catch (error) {
+    logger.error('users service : addShow: catch %o', error);
+    res.status(500);
+    res.json({
+      code: 'internal_error',
+      message: 'Server encountered an error, Please try again after some time',
     });
   }
-  catch(error){
-    logger.error("users service : addShow: catch %o",error);
-      res.status(500);
-      res.json({
-        code:"internal_error",
-        message: "Server encountered an error, Please try again after some time"
-      });
-  } 
-}
+};
 
 exports.upvoteShow = async (res, body) => {
-  logger.debug("users service : upvoteShow : start");
-  try{
+  logger.debug('users service : upvoteShow : start');
+  try {
     let show = await Shows.findById(body.showId);
     let haveUpvoted, haveDownvoted, message;
 
-    if(!show){
-      logger.error("users service : upvoteShow: file not found %o",show);
+    if (!show) {
+      logger.error('users service : upvoteShow: file not found %o', show);
       res.status(404);
       res.json({
         success: false,
-        message: "Invalid show",
-        data: {}
+        message: 'Invalid show',
+        data: {},
       });
       return;
     }
 
-    if(body.isUpvote){
+    if (body.isUpvote) {
       haveDownvoted = false;
       haveUpvoted = true;
-      message = "Show upvoted successfully";
+      message = 'Show upvoted successfully';
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
-            $addToSet: {
-                upvotes: body.userId
-            },
-            $pull: { downvotes: body.userId } 
+          $addToSet: {
+            upvotes: body.userId,
+          },
+          $pull: { downvotes: body.userId },
         },
         { new: true }
-        ).lean();
-    }
-    else{
+      ).lean();
+    } else {
       haveDownvoted = false;
       haveUpvoted = false;
-      message = "Removed your upvote";
+      message = 'Removed your upvote';
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
-            $pull: {
-                upvotes: body.userId
-            }
+          $pull: {
+            upvotes: body.userId,
+          },
         },
         { new: true }
-        ).lean();
+      ).lean();
     }
 
-    const showInfo = {...show, upvotes: show.upvotes.length, downvotes: show.downvotes.length, haveUpvoted: haveUpvoted, haveDownvoted: haveDownvoted}
+    const showInfo = {
+      ...show,
+      upvotes: show.upvotes.length,
+      downvotes: show.downvotes.length,
+      haveUpvoted: haveUpvoted,
+      haveDownvoted: haveDownvoted,
+    };
 
-    logger.info("users service : upvoteShow: result %o",show);
+    logger.info('users service : upvoteShow: result %o', show);
     res.status(200);
     res.json({
       success: true,
       message: message,
       data: {
-        show: showInfo
-      }
+        show: showInfo,
+      },
+    });
+  } catch (error) {
+    logger.error('recommendations service : editCategory: catch %o', error);
+    res.status(500);
+    res.json({
+      code: 'internal_error',
+      message: 'Server encountered an error, Please try again after some time',
     });
   }
-  catch(error){
-    logger.error("recommendations service : editCategory: catch %o",error);
-      res.status(500);
-      res.json({
-        code:"internal_error",
-        message: "Server encountered an error, Please try again after some time"
-      });
-  } 
-}
+};
 
 exports.downvoteShow = async (res, body) => {
-  logger.debug("users service : downvoteShow : start");
-  try{
+  logger.debug('users service : downvoteShow : start');
+  try {
     let show = await Shows.findById(body.showId);
     let haveUpvoted, haveDownvoted, message;
 
-    if(!show){
-      logger.error("users service : downvoteShow: file not found %o",show);
+    if (!show) {
+      logger.error('users service : downvoteShow: file not found %o', show);
       res.status(404);
       res.json({
         success: false,
-        message: "Invalid show",
-        data: {}
+        message: 'Invalid show',
+        data: {},
       });
       return;
     }
 
-    if(body.isDownvote){
+    if (body.isDownvote) {
       haveDownvoted = true;
       haveUpvoted = false;
-      message = "Show downvoted successfully";
+      message = 'Show downvoted successfully';
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
-            $addToSet: {
-              downvotes: body.userId
-            },
-            $pull: { upvotes: body.userId } 
+          $addToSet: {
+            downvotes: body.userId,
+          },
+          $pull: { upvotes: body.userId },
         },
         { new: true }
-        ).lean();
-    }
-    else{
+      ).lean();
+    } else {
       haveDownvoted = false;
       haveUpvoted = false;
-      message = "Removed your downvote"
+      message = 'Removed your downvote';
       show = await Shows.findOneAndUpdate(
         { _id: body.showId },
         {
-            $pull: {
-              downvotes: body.userId
-            }
+          $pull: {
+            downvotes: body.userId,
+          },
         },
         { new: true }
-        ).lean();
+      ).lean();
     }
 
-    const showInfo = {...show, upvotes: show.upvotes.length, downvotes: show.downvotes.length, haveUpvoted: haveUpvoted, haveDownvoted: haveDownvoted}
+    const showInfo = {
+      ...show,
+      upvotes: show.upvotes.length,
+      downvotes: show.downvotes.length,
+      haveUpvoted: haveUpvoted,
+      haveDownvoted: haveDownvoted,
+    };
 
-    { }
+    {
+    }
 
-    logger.info("users service : downvoteShow: result %o",show);
+    logger.info('users service : downvoteShow: result %o', show);
     res.status(200);
     res.json({
       success: true,
       message: message,
       data: {
-        show: showInfo
-      }
+        show: showInfo,
+      },
+    });
+  } catch (error) {
+    logger.error('users service : downvoteShow: catch %o', error);
+    res.status(500);
+    res.json({
+      code: 'internal_error',
+      message: 'Server encountered an error, Please try again after some time',
     });
   }
-  catch(error){
-    logger.error("users service : downvoteShow: catch %o",error);
-      res.status(500);
-      res.json({
-        code:"internal_error",
-        message: "Server encountered an error, Please try again after some time"
-      });
-  } 
-}
+};
 
 exports.deleteShow = async (res, body) => {
-  logger.debug("users service : deleteShow : start");
-  try{
-    let show = await Shows.findOne({_id: body.showId});
-    console.log("creaa",show.created_by);
-    console.log("body.userId",body.userId);
+  logger.debug('users service : deleteShow : start');
+  try {
+    let show = await Shows.findOne({ _id: body.showId });
+    console.log('creaa', show.created_by);
+    console.log('body.userId', body.userId);
 
-    if(show.created_by != body.userId){
+    if (show.created_by != body.userId) {
       res.status(403);
       res.json({
         success: false,
         message: "You don't have permission to delete this show",
         data: {
-          show: show
-        }
+          show: show,
+        },
       });
-    }
-    else{
+    } else {
       show.is_active = false;
       show = await show.save();
       res.status(200);
       res.json({
         success: true,
-        message: "Show deleted successfully",
+        message: 'Show deleted successfully',
         data: {
-          show: show
-        }
+          show: show,
+        },
       });
     }
-    logger.info("users service : downvoteShow: result %o",show);
+    logger.info('users service : downvoteShow: result %o', show);
+  } catch (error) {
+    logger.error('users service : downvoteShow: catch %o', error);
+    res.status(500);
+    res.json({
+      code: 'internal_error',
+      message: 'Server encountered an error, Please try again after some time',
+    });
   }
-  catch(error){
-    logger.error("users service : downvoteShow: catch %o",error);
-      res.status(500);
-      res.json({
-        code:"internal_error",
-        message: "Server encountered an error, Please try again after some time"
-      });
-  } 
-}
+};
