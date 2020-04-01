@@ -16,7 +16,7 @@ exports.addUser = async (req, res) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -33,7 +33,7 @@ exports.loginUser = async (req, res) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -50,7 +50,7 @@ exports.checkUsername = async (req, res) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -82,7 +82,7 @@ exports.addShow = async (req, res) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -131,7 +131,7 @@ exports.upvoteShow = async (req, res) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -152,7 +152,7 @@ exports.downvoteShow = async (req, res) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -173,7 +173,7 @@ exports.deleteShow = async (req, res) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };

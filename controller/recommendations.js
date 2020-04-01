@@ -5,66 +5,66 @@ const recommendationsService = require('../service/recommendations');
 const logger = require('../util/logger');
 
 exports.getShows = async (req, res) => {
-  try{
+  try {
     logger.debug("recommendations controller : getShows : start");
     let { languages, genres, types, user_id, sort, order, q } = req.query;
     filterObj = { "is_active": true };
 
-    languages && (filterObj["language"] = {$in: languages.split(',')});
-    genres && (filterObj["genres"] = { $in: genres.split(',')} );
-    types && (filterObj["type"] = {$in: types.split(',')});
-    q && (filterObj["name"] = ({ $regex: new RegExp(q, 'i')}));
+    languages && (filterObj["language"] = { $in: languages.split(',') });
+    genres && (filterObj["genres"] = { $in: genres.split(',') });
+    types && (filterObj["type"] = { $in: types.split(',') });
+    q && (filterObj["name"] = ({ $regex: new RegExp(q, 'i') }));
 
-    console.log("filterObj",filterObj);
+    console.log("filterObj", filterObj);
 
     logger.debug("category controller : getShows : Search Params %o", filterObj);
     recommendationsService.getShows(res, filterObj, user_id, sort, order);
     logger.debug("category controller : getShows :end");
   }
-  catch(error){
-    logger.error("category controller : getShows: catch %o",error);
+  catch (error) {
+    logger.error("category controller : getShows: catch %o", error);
     res.status(500);
     res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
+      code: "internal_error",
+      message: "The request didn't went through. Please try after sometime."
     });
   }
 }
 
-exports.editRecommendations = async (req,res) => {
+exports.editRecommendations = async (req, res) => {
   logger.debug("recommendations controller : editCategory : start");
 
-  try{
+  try {
     let body = req.body;
     const errorMessage = await editInputValidation(body);
-    if(errorMessage){
+    if (errorMessage) {
       res.status(400);
       res.json(errorMessage);
     }
-    else{
+    else {
       let dataObj = {};
 
       let { name, genre, type } = body;
       name && (dataObj["name"] = name);
       genre && (dataObj["genre"] = genre);
       type && (dataObj["type"] = type);
-      console.log("dataObj",dataObj);
-      recommendationsService.editRecommendations(res,body, body.id);
+      console.log("dataObj", dataObj);
+      recommendationsService.editRecommendations(res, body, body.id);
     }
 
     logger.debug("recommendations controller : editCategory :end");
   }
-  catch(error){
-    logger.error("recommendations controller : editCategory: catch %o",error);
+  catch (error) {
+    logger.error("recommendations controller : editCategory: catch %o", error);
     res.status(500);
     res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
+      code: "internal_error",
+      message: "The request didn't went through. Please try after sometime."
     });
   }
 }
 
-let editInputValidation = async (body) =>{
+let editInputValidation = async (body) => {
   const schema = Joi.object({
     id: Joi.string().required(),
     name: Joi.string(),
@@ -74,107 +74,107 @@ let editInputValidation = async (body) =>{
   });
 
   const result = await schema.validate(body);
-  if(result.error){
-    logger.error("recommendations controller : editCategory : Input Validation error %o",result.error);
+  if (result.error) {
+    logger.error("recommendations controller : editCategory : Input Validation error %o", result.error);
     return {
-      code:"input_data_issue",
+      code: "input_data_issue",
       message: result.error.details[0].message.split('\"').join("")
     };
   }
-  else{
+  else {
     logger.info("recommendations controller : editCategory : Input Validation success");
     return false;
   }
 }
 
-exports.downvoteRecommendations = async (req,res) => {
+exports.downvoteRecommendations = async (req, res) => {
   logger.debug("recommendations controller : editCategory : start");
 
-  try{
+  try {
     let body = req.body;
-    recommendationsService.downvoteRecommendations(res,body.id);
+    recommendationsService.downvoteRecommendations(res, body.id);
 
     logger.debug("recommendations controller : editCategory :end");
   }
-  catch(error){
-    logger.error("recommendations controller : editCategory: catch %o",error);
+  catch (error) {
+    logger.error("recommendations controller : editCategory: catch %o", error);
     res.status(500);
     res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
+      code: "internal_error",
+      message: "The request didn't went through. Please try after sometime."
     });
   }
 }
 
-exports.addShowType = async (req,res) => {
+exports.addShowType = async (req, res) => {
   logger.debug("recommendations controller : addShows : start");
 
-  try{
+  try {
     let body = req.body;
-    recommendationsService.addShowType(res,body);
+    recommendationsService.addShowType(res, body);
 
     logger.debug("recommendations controller : editCategory :end");
   }
-  catch(error){
-    logger.error("recommendations controller : editCategory: catch %o",error);
+  catch (error) {
+    logger.error("recommendations controller : editCategory: catch %o", error);
     res.status(500);
     res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
+      code: "internal_error",
+      message: "The request didn't went through. Please try after sometime."
     });
   }
 }
 
-exports.addLanguages = async (req,res) => {
+exports.addLanguages = async (req, res) => {
   logger.debug("recommendations controller : addLanguages : start");
 
-  try{
+  try {
     let body = req.body;
-    recommendationsService.addLanguages(res,body);
+    recommendationsService.addLanguages(res, body);
 
     logger.debug("recommendations controller : addLanguages :end");
   }
-  catch(error){
-    logger.error("recommendations controller : addLanguages: catch %o",error);
+  catch (error) {
+    logger.error("recommendations controller : addLanguages: catch %o", error);
     res.status(500);
     res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
+      code: "internal_error",
+      message: "The request didn't went through. Please try after sometime."
     });
   }
 }
 
-exports.addGenres = async (req,res) => {
+exports.addGenres = async (req, res) => {
   logger.debug("recommendations controller : addGenres : start");
 
-  try{
+  try {
     let body = req.body;
-    recommendationsService.addGenres(res,body);
+    recommendationsService.addGenres(res, body);
 
     logger.debug("recommendations controller : addGenres :end");
   }
-  catch(error){
-    logger.error("recommendations controller : addGenres: catch %o",error);
+  catch (error) {
+    logger.error("recommendations controller : addGenres: catch %o", error);
     res.status(500);
     res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
+      code: "internal_error",
+      message: "The request didn't went through. Please try after sometime."
     });
   }
 }
 
-exports.getStatics = async(req, res) => {
+exports.getStatics = async (req, res) => {
   logger.debug("recommendations controller : getStatics : start");
-  try{
+  try {
     recommendationsService.getStatics(res);
     logger.debug("recommendations controller : getStatics : end");
   }
-  catch(error){
-    logger.error("recommendations controller : getStatics: catch %o",error);
+  catch (error) {
+    logger.error("recommendations controller : getStatics: catch %o", error);
     res.status(500);
     res.json({
-      code:"internal_error",
-      message: "Server encountered an error, Please try again after some time"
+      code: "internal_error",
+      message: "The request didn't went through. Please try after sometime."
     });
   }
 }

@@ -25,7 +25,7 @@ exports.getShows = async (res, filterObj, user_id, sort, order) => {
       order = -1;
     }
 
-    let result;
+    let result = [];
     if (sort === 'created_at')
       result = await Shows.find(filterObj).sort({ created_at: order });
     else if (sort === "popular") {
@@ -54,7 +54,7 @@ exports.getShows = async (res, filterObj, user_id, sort, order) => {
       // console.log('results1', result);
     }
     else {
-      await Shows.aggregate(
+      result = await Shows.aggregate(
         [
           {
             $project: {
@@ -75,11 +75,7 @@ exports.getShows = async (res, filterObj, user_id, sort, order) => {
           },
           { $match: filterObj },
           { $sort: { length: -1 } },
-        ],
-        function (err, results) {
-          result = results;
-          // console.log('results2', result);
-        }
+        ]
       );
     }
 
@@ -91,6 +87,7 @@ exports.getShows = async (res, filterObj, user_id, sort, order) => {
     //   return{ ...tempItem, upvotes: tempItem.upvotes.length, downvotes: tempItem.downvotes.length}
     // })
     let newResult = [];
+    console.log("ressss", result);
     result.forEach(item => {
       let updatedValue = {
         _id: item._id,
@@ -131,7 +128,7 @@ exports.getShows = async (res, filterObj, user_id, sort, order) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -160,7 +157,7 @@ exports.editRecommendations = async (res, dataObj, id) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -192,7 +189,7 @@ exports.downvoteRecommendations = async (res, id) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -209,7 +206,7 @@ exports.addShowType = async (res, body) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -226,7 +223,7 @@ exports.addLanguages = async (res, body) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -243,7 +240,7 @@ exports.addGenres = async (res, body) => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
@@ -272,7 +269,7 @@ exports.getStatics = async res => {
     res.status(500);
     res.json({
       code: 'internal_error',
-      message: 'Server encountered an error, Please try again after some time',
+      message: "The request didn't went through. Please try after sometime.",
     });
   }
 };
