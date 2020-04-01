@@ -51,7 +51,7 @@ exports.getShows = async (res, filterObj, user_id, sort, order) => {
           { $match: filterObj },
           { $sort: { popularity: -1 } },
         ]);
-      console.log('results1', result);
+      // console.log('results1', result);
     }
     else {
       await Shows.aggregate(
@@ -78,7 +78,7 @@ exports.getShows = async (res, filterObj, user_id, sort, order) => {
         ],
         function (err, results) {
           result = results;
-          console.log('results2', result);
+          // console.log('results2', result);
         }
       );
     }
